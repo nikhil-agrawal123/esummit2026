@@ -5,7 +5,6 @@
     width: 100%;
     z-index: 10;
     transform-origin: 100% 0%;
-
 }
 
 .branch {
@@ -19,28 +18,69 @@
     animation: branchWind 10s ease-in-out infinite;
 }
 
-
-.lantern {
+.lantern-wrapper {
     position: absolute;
-    width: 213px;
-    height: 320px;
     z-index: 3;
-
     transform-origin: 50% 0%;
-
     animation:
         swing 7s cubic-bezier(.4, 0, .2, 1) infinite,
         flicker 2.5s ease-in-out infinite;
-
     transition: transform 300ms;
+    text-decoration: none;
 }
 
-.lantern:hover {
+.lantern-wrapper:hover {
     transform: scale(1.05);
+    opacity: 0.98;
     filter:
         drop-shadow(0 0 18px rgba(255, 118, 90, 0.7))
         drop-shadow(0 0 35px rgba(255, 135, 70, 0.4));
 }
+
+.lantern {
+    width: 100%;
+    height: 100%;
+}
+
+.lantern-label {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    z-index: 4;
+    pointer-events: none;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    transition: left 300ms ease;
+}
+
+.about{
+    top: 56%;
+    letter-spacing: -7px;
+}
+
+.events{
+    top: 56%;
+    letter-spacing: -6px;
+}
+
+.speakers{
+    top: 58%;
+    letter-spacing: -7px;
+}
+
+.sponsors{
+    top: 58%;
+    letter-spacing: -9px;
+}
+
+.lantern-wrapper:hover .lantern-label {
+    left: 45%;
+    }
+
 
 .l1 { animation-delay: -1s, -0.3s; }
 .l2 { animation-delay: -2.3s, -1s; }
@@ -53,6 +93,8 @@
 }
 
 .l1 {
+    width: 213px;
+    height: 320px;
     top: 280px;
     right: 600px;
 }
@@ -83,35 +125,12 @@
     right: 10px;
 }
 
-
 @keyframes branchWind {
     0%   { transform: rotate(0deg); }
     30%  { transform: rotate(0.6deg); }
     60%  { transform: rotate(-0.4deg); }
     100% { transform: rotate(0deg); }
 }
-
-/* @keyframes swing {
-    0% {
-        transform: rotate(0deg) translateY(0);
-    }
-
-    20% {
-        transform: rotate(1.2deg) translateY(1px);
-    }
-
-    50% {
-        transform: rotate(-1.2deg) translateY(-1px);
-    }
-
-    80% {
-        transform: rotate(1deg) translateY(0.5px);
-    }
-
-    100% {
-        transform: rotate(0deg) translateY(0);
-    }
-} */
 
 @keyframes flicker {
     0%, 100% {
@@ -123,7 +142,8 @@
     25% {
         filter:
             drop-shadow(0 0 20px rgba(255,140,90,0.8))
-            drop-shadow(0 0 40px rgba(255,160,70,0.45));}
+            drop-shadow(0 0 40px rgba(255,160,70,0.45));
+    }
 
     50% {
         filter:
@@ -136,5 +156,26 @@
             drop-shadow(0 0 20px rgba(255,140,90,0.8))
             drop-shadow(0 0 40px rgba(255,160,70,0.45));
     }
-
 }
+
+/* @keyframes swing {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    20% {
+        transform: rotate(1.2deg) translateY(2px);
+    }
+
+    50% {
+        transform: rotate(-1.6deg) translateY(-2px);
+    }
+
+    80% {
+        transform: rotate(1deg) translateY(1px);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+} */
