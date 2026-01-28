@@ -1,3 +1,13 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    transform-origin: 100% 0%;
+
+}
+
 .branch {
     width: 965px;
     height: 576px;
@@ -5,7 +15,6 @@
     top: 0px;
     right: -10px;
     z-index: 3;
-
     transform-origin: 100% 0%;
     animation: branchWind 10s ease-in-out infinite;
 }
@@ -82,27 +91,27 @@
     100% { transform: rotate(0deg); }
 }
 
-@keyframes swing {
+/* @keyframes swing {
     0% {
         transform: rotate(0deg) translateY(0);
     }
 
     20% {
-        transform: rotate(1.2deg) translateY(2px);
+        transform: rotate(1.2deg) translateY(1px);
     }
 
     50% {
-        transform: rotate(-1.6deg) translateY(-2px);
+        transform: rotate(-1.2deg) translateY(-1px);
     }
 
     80% {
-        transform: rotate(1deg) translateY(1px);
+        transform: rotate(1deg) translateY(0.5px);
     }
 
     100% {
         transform: rotate(0deg) translateY(0);
     }
-}
+} */
 
 @keyframes flicker {
     0%, 100% {
