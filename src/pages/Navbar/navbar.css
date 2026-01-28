@@ -1,0 +1,114 @@
+.branch {
+    width: 965px;
+    height: 576px;
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    z-index: 3;
+    transform-origin: 100% 0%;
+    animation: windWobble 6s ease-in-out infinite;
+}
+
+.lantern {
+    position: absolute;
+    width: 213px;
+    height: 320px;
+    z-index: 3;
+    transform-origin: 50% 50%;
+    transition: transform 300ms;
+    animation: windWobble 6s ease-in-out infinite;
+    animation: flicker 2000ms ease-in-out infinite forwards;
+}
+
+.lantern:hover {
+    transform: scale(1.05);
+    filter:
+        drop-shadow(0 0 18px rgba(255, 118, 90, 0.7)) drop-shadow(0 0 35px rgba(255, 135, 70, 0.4));
+}
+
+@keyframes flicker {
+    0% {
+        filter:
+        drop-shadow(0 0 18px rgba(255, 190, 90, 0.2)) drop-shadow(0 0 35px rgba(255, 95, 70, 0.1));
+    }
+    50% {
+        filter:
+        drop-shadow(0 0 18px rgba(255, 134, 90, 0.7)) drop-shadow(0 0 35px rgba(255, 160, 70, 0.4));
+    }
+    100% {
+        filter:
+        drop-shadow(0 0 18px rgba(255, 190, 90, 0.2)) drop-shadow(0 0 35px rgba(255, 160, 70, 0.1));
+    }
+}
+
+/* .lanterns>a>span {
+    text-shadow: 1px 1px 2px #fff;
+    font-family: 'Cinzel', serif;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    position: absolute;
+    font-weight: bold;
+    color: #8B0000;
+    font-size: 21px;
+    z-index: 4;
+} */
+
+
+.s1 {
+    top: 390px;
+    right: 578px;
+}
+
+.l1 {
+    top: 280px;
+    right: 600px;
+}
+
+.s2 {
+    top: 283px;
+    right: 455px;
+}
+
+.l2 {
+    width: 280px;
+    height: 420px;
+    top: 145px;
+    right: 400px;
+}
+
+.l3{
+    width: 300px;
+    height: 420px;
+    top: 175px;
+    right: 210px;
+}
+
+.l4 {
+    width: 290px;
+    height: 410px;
+    top: 220px;
+    right: 10px;
+}
+
+
+@keyframes windWobble {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate3d(0.1%, -0.15%, 0) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translate3d(-0.05%, 0.15%, 0) rotate(-0.25deg);
+    }
+
+    75% {
+        transform: translate3d(0.1%, -0.15%, 0) rotate(0.5deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}

@@ -1,12 +1,13 @@
-import Hero from "./pages/hero"
+import Hero from "./pages/hero";
+import Petals from "./pages/Petals/petals";
 
 function App() {
-
   return (
-    <div>
+    <>
       <Hero />
-    </div>
-  )
+      <Petals count={50} />
+    </>
+  );
 }
 
-export default App
+export default App;
