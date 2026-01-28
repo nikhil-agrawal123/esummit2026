@@ -5,7 +5,7 @@ import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Navbar from "./pages/Navbar/navbar";
+import Navbar from "./components/navbar";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
