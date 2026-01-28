@@ -11,6 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
     const firstHeroRef = useRef<HTMLDivElement | null>(null);
     const navbarRef = useRef<HTMLDivElement | null>(null);
+    const scaleDownFactor = 0.35;
+    let scaled = false;
+    let hovered = false;
 
     useEffect(() => {
         const lenis = new Lenis({ lerp: 0.1 });
@@ -24,22 +27,59 @@ function App() {
         requestAnimationFrame(raf);
     }, []);
 
+
     useGSAP(() => {
         if (!firstHeroRef.current || !navbarRef.current) return;
 
-        gsap.to(navbarRef.current, {
-            // x: () => window.innerWidth,
-            // opacity: 0,
-            // left: 0,
-            transform: "scaleX(0.7) scaleY(0.75)",
-            ease: "back.out(1.5)",
-            duration: 3,
+        const nav = navbarRef.current;
+
+        gsap.to(nav, {
+            scaleX: scaleDownFactor,
+            scaleY: scaleDownFactor + 0.05,
+            ease: "none",
             scrollTrigger: {
                 trigger: firstHeroRef.current,
                 start: "top top",
                 end: "bottom top",
                 scrub: true,
+                onUpdate: self => {
+                    scaled = self.progress > 0.05;
+                    if (!scaled && hovered) {
+                        hovered = false;
+                        gsap.to(nav, {
+                            scaleX: 1,
+                            scaleY: 1,
+                            duration: 0.2,
+                        });
+                    }
+                },
             },
+        });
+
+        nav.addEventListener("mouseenter", () => {
+            if (!scaled) return;
+
+            hovered = true;
+
+            gsap.to(nav, {
+                scaleX: 1,
+                scaleY: 1,
+                duration: 0.3,
+                ease: "power2.out",
+            });
+        });
+
+        nav.addEventListener("mouseleave", () => {
+            if (!scaled) return;
+
+            hovered = false;
+
+            gsap.to(nav, {
+                scaleX: scaleDownFactor,
+                scaleY: scaleDownFactor + 0.05,
+                duration: 0.3,
+                ease: "power2.out",
+            });
         });
     }, []);
 
