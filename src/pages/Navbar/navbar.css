@@ -1,3 +1,13 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    transform-origin: 100% 0%;
+
+}
+
 .branch {
     width: 965px;
     height: 576px;
@@ -6,53 +16,36 @@
     right: -10px;
     z-index: 3;
     transform-origin: 100% 0%;
-    animation: windWobble 6s ease-in-out infinite;
+    animation: branchWind 10s ease-in-out infinite;
 }
+
 
 .lantern {
     position: absolute;
     width: 213px;
     height: 320px;
     z-index: 3;
-    transform-origin: 50% 50%;
+
+    transform-origin: 50% 0%;
+
+    animation:
+        swing 7s cubic-bezier(.4, 0, .2, 1) infinite,
+        flicker 2.5s ease-in-out infinite;
+
     transition: transform 300ms;
-    animation: windWobble 6s ease-in-out infinite;
-    animation: flicker 2000ms ease-in-out infinite forwards;
 }
 
 .lantern:hover {
     transform: scale(1.05);
     filter:
-        drop-shadow(0 0 18px rgba(255, 118, 90, 0.7)) drop-shadow(0 0 35px rgba(255, 135, 70, 0.4));
+        drop-shadow(0 0 18px rgba(255, 118, 90, 0.7))
+        drop-shadow(0 0 35px rgba(255, 135, 70, 0.4));
 }
 
-@keyframes flicker {
-    0% {
-        filter:
-        drop-shadow(0 0 18px rgba(255, 190, 90, 0.2)) drop-shadow(0 0 35px rgba(255, 95, 70, 0.1));
-    }
-    50% {
-        filter:
-        drop-shadow(0 0 18px rgba(255, 134, 90, 0.7)) drop-shadow(0 0 35px rgba(255, 160, 70, 0.4));
-    }
-    100% {
-        filter:
-        drop-shadow(0 0 18px rgba(255, 190, 90, 0.2)) drop-shadow(0 0 35px rgba(255, 160, 70, 0.1));
-    }
-}
-
-/* .lanterns>a>span {
-    text-shadow: 1px 1px 2px #fff;
-    font-family: 'Cinzel', serif;
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    position: absolute;
-    font-weight: bold;
-    color: #8B0000;
-    font-size: 21px;
-    z-index: 4;
-} */
-
+.l1 { animation-delay: -1s, -0.3s; }
+.l2 { animation-delay: -2.3s, -1s; }
+.l3 { animation-delay: -0.6s, -0.7s; }
+.l4 { animation-delay: -1.7s, -1.2s; }
 
 .s1 {
     top: 390px;
@@ -76,7 +69,7 @@
     right: 400px;
 }
 
-.l3{
+.l3 {
     width: 300px;
     height: 420px;
     top: 175px;
@@ -91,24 +84,57 @@
 }
 
 
-@keyframes windWobble {
+@keyframes branchWind {
+    0%   { transform: rotate(0deg); }
+    30%  { transform: rotate(0.6deg); }
+    60%  { transform: rotate(-0.4deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* @keyframes swing {
     0% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
+        transform: rotate(0deg) translateY(0);
     }
 
-    25% {
-        transform: translate3d(0.1%, -0.15%, 0) rotate(0.5deg);
+    20% {
+        transform: rotate(1.2deg) translateY(1px);
     }
 
     50% {
-        transform: translate3d(-0.05%, 0.15%, 0) rotate(-0.25deg);
+        transform: rotate(-1.2deg) translateY(-1px);
     }
 
-    75% {
-        transform: translate3d(0.1%, -0.15%, 0) rotate(0.5deg);
+    80% {
+        transform: rotate(1deg) translateY(0.5px);
     }
 
     100% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
+        transform: rotate(0deg) translateY(0);
     }
+} */
+
+@keyframes flicker {
+    0%, 100% {
+        filter:
+            drop-shadow(0 0 14px rgba(255,160,90,0.3))
+            drop-shadow(0 0 28px rgba(255,120,70,0.2));
+    }
+
+    25% {
+        filter:
+            drop-shadow(0 0 20px rgba(255,140,90,0.8))
+            drop-shadow(0 0 40px rgba(255,160,70,0.45));}
+
+    50% {
+        filter:
+            drop-shadow(0 0 16px rgba(255,170,90,0.5))
+            drop-shadow(0 0 32px rgba(255,140,70,0.3));
+    }
+
+    75% {
+        filter:
+            drop-shadow(0 0 20px rgba(255,140,90,0.8))
+            drop-shadow(0 0 40px rgba(255,160,70,0.45));
+    }
+
 }
