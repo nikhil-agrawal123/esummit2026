@@ -15,36 +15,40 @@
     will-change: transform;
     position: absolute;
     left: 0;
-    z-index: 10;
+    z-index: 100;
     top: 0;
 }
 
 @keyframes wind-fall {
     0% {
-        transform:
-            translate(var(--x-start), var(--y-start)) rotate(0deg);
+        transform: translate(var(--x-start), var(--y-start)) rotate(0deg);
     }
 
     25% {
-        transform:
-            translate(calc(var(--x-start) + var(--wobble)),
-                calc(var(--y-start) + 25vh)) rotate(calc(var(--spin) * 0.25));
+        transform: translate(
+                calc(var(--x-start) + var(--wobble)),
+                calc(var(--y-start) + 25vh)
+            )
+            rotate(calc(var(--spin) * 0.25));
     }
 
     50% {
-        transform:
-            translate(calc((var(--x-start) + var(--x-end)) / 2),
-                calc(var(--y-start) + 55vh)) rotate(calc(var(--spin) * 0.5));
+        transform: translate(
+                calc((var(--x-start) + var(--x-end)) / 2),
+                calc(var(--y-start) + 55vh)
+            )
+            rotate(calc(var(--spin) * 0.5));
     }
 
     75% {
-        transform:
-            translate(calc(var(--x-end) - var(--wobble)),
-                calc(var(--y-start) + 85vh)) rotate(calc(var(--spin) * 0.75));
+        transform: translate(
+                calc(var(--x-end) - var(--wobble)),
+                calc(var(--y-start) + 85vh)
+            )
+            rotate(calc(var(--spin) * 0.75));
     }
 
     100% {
-        transform:
-            translate(var(--x-end), var(--y-end)) rotate(var(--spin));
+        transform: translate(var(--x-end), var(--y-end)) rotate(var(--spin));
     }
 }

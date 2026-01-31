@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
     transform-origin: 100% 0%;
 }
 
@@ -13,17 +13,17 @@
     position: absolute;
     top: 0px;
     right: -10px;
-    z-index: 3;
+    z-index: 30;
     transform-origin: 100% 0%;
     animation: branchWind 10s ease-in-out infinite;
 }
 
 .lantern-wrapper {
     position: absolute;
-    z-index: 3;
+    z-index: 30;
     transform-origin: 50% 0%;
     animation:
-        swing 7s cubic-bezier(.4, 0, .2, 1) infinite,
+        swing 7s cubic-bezier(0.4, 0, 0.2, 1) infinite,
         flicker 2.5s ease-in-out infinite;
     transition: transform 300ms;
     text-decoration: none;
@@ -32,8 +32,7 @@
 .lantern-wrapper:hover {
     transform: scale(1.05);
     opacity: 0.98;
-    filter:
-        drop-shadow(0 0 18px rgba(255, 118, 90, 0.7))
+    filter: drop-shadow(0 0 18px rgba(255, 118, 90, 0.7))
         drop-shadow(0 0 35px rgba(255, 135, 70, 0.4));
 }
 
@@ -50,42 +49,57 @@
     font-size: 20px;
     font-weight: 600;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    z-index: 4;
+    z-index: 40;
     pointer-events: none;
     writing-mode: vertical-lr;
     text-orientation: upright;
     transition: left 300ms ease;
 }
 
-.about{
+.about {
     top: 56%;
     letter-spacing: -7px;
 }
 
-.events{
+.events {
     top: 56%;
     letter-spacing: -6px;
 }
 
-.speakers{
+.speakers {
     top: 58%;
     letter-spacing: -7px;
 }
 
-.sponsors{
+.sponsors {
     top: 58%;
     letter-spacing: -9px;
 }
 
 .lantern-wrapper:hover .lantern-label {
     left: 45%;
-    }
+}
 
-
-.l1 { animation-delay: -1s, -0.3s; }
-.l2 { animation-delay: -2.3s, -1s; }
-.l3 { animation-delay: -0.6s, -0.7s; }
-.l4 { animation-delay: -1.7s, -1.2s; }
+.l1 {
+    animation-delay:
+        -1s,
+        -0.3s;
+}
+.l2 {
+    animation-delay:
+        -2.3s,
+        -1s;
+}
+.l3 {
+    animation-delay:
+        -0.6s,
+        -0.7s;
+}
+.l4 {
+    animation-delay:
+        -1.7s,
+        -1.2s;
+}
 
 .s1 {
     top: 390px;
@@ -126,35 +140,40 @@
 }
 
 @keyframes branchWind {
-    0%   { transform: rotate(0deg); }
-    30%  { transform: rotate(0.6deg); }
-    60%  { transform: rotate(-0.4deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(0.6deg);
+    }
+    60% {
+        transform: rotate(-0.4deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 @keyframes flicker {
-    0%, 100% {
-        filter:
-            drop-shadow(0 0 14px rgba(255,160,90,0.3))
-            drop-shadow(0 0 28px rgba(255,120,70,0.2));
+    0%,
+    100% {
+        filter: drop-shadow(0 0 14px rgba(255, 160, 90, 0.3))
+            drop-shadow(0 0 28px rgba(255, 120, 70, 0.2));
     }
 
     25% {
-        filter:
-            drop-shadow(0 0 20px rgba(255,140,90,0.8))
-            drop-shadow(0 0 40px rgba(255,160,70,0.45));
+        filter: drop-shadow(0 0 20px rgba(255, 140, 90, 0.8))
+            drop-shadow(0 0 40px rgba(255, 160, 70, 0.45));
     }
 
     50% {
-        filter:
-            drop-shadow(0 0 16px rgba(255,170,90,0.5))
-            drop-shadow(0 0 32px rgba(255,140,70,0.3));
+        filter: drop-shadow(0 0 16px rgba(255, 170, 90, 0.5))
+            drop-shadow(0 0 32px rgba(255, 140, 70, 0.3));
     }
 
     75% {
-        filter:
-            drop-shadow(0 0 20px rgba(255,140,90,0.8))
-            drop-shadow(0 0 40px rgba(255,160,70,0.45));
+        filter: drop-shadow(0 0 20px rgba(255, 140, 90, 0.8))
+            drop-shadow(0 0 40px rgba(255, 160, 70, 0.45));
     }
 }
 

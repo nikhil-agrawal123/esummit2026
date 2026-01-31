@@ -8,6 +8,7 @@ import handleBottom from "../../assets/events/scroll-handle-bottom.png";
 import paperTexture from "../../assets/events/scroll-paper.png";
 import cloud1 from "../../assets/events/cloud1.png";
 import cloud2 from "../../assets/events/cloud2.png";
+import eventsBg from "../../assets/events/events-bg.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ interface EventScrollProps {
 const EventScroll = ({ title, index }: EventScrollProps) => {
     return (
         <div
-            className="scroll-container relative flex flex-col items-center w-64 opacity-0 origin-top"
+            className="scroll-container relative flex flex-col items-center w-64 opacity-0 origin-top z-30"
             data-index={index}
         >
             <img
@@ -73,7 +74,12 @@ const Events = () => {
             const scrolls =
                 gsap.utils.toArray<HTMLElement>(".scroll-container");
 
-            const startSwaying = () => {
+            // Set initial state off-screen
+            gsap.set(cloudRef1.current, { x: "-100%", opacity: 0 });
+            gsap.set(cloudRef2.current, { x: "100%", opacity: 0 });
+
+            const startIdleAnimations = () => {
+                // Scrolls Pendulum
                 scrolls.forEach((scroll, i) => {
                     const randomDuration = 3 + Math.random() * 1.5;
                     const randomAngle = 2 + Math.random() * 2;
@@ -96,6 +102,23 @@ const Events = () => {
                         delay: i * 0.1 + randomDuration,
                     });
                 });
+
+                // Clouds Infinite Float (Continuing from where Entrance left off)
+                gsap.to(cloudRef1.current, {
+                    x: "10%", // Drift slightly right
+                    duration: 5,
+                    ease: "sine.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                });
+
+                gsap.to(cloudRef2.current, {
+                    x: "-10%", // Drift slightly left
+                    duration: 5,
+                    ease: "sine.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                });
             };
 
             const tl = gsap.timeline({
@@ -105,7 +128,7 @@ const Events = () => {
                     end: "bottom bottom",
                     toggleActions: "play none none reverse",
                 },
-                onComplete: startSwaying,
+                onComplete: startIdleAnimations,
             });
 
             tl.to(scrolls, {
@@ -127,26 +150,27 @@ const Events = () => {
                 "-=0.3",
             );
 
-            gsap.fromTo(
+            // Cloud Entrance: Slide in from edges to neutral position (0%)
+            tl.to(
                 cloudRef1.current,
-                { x: "-200px" },
                 {
-                    x: "110vw",
-                    duration: 40,
-                    ease: "none",
-                    repeat: -1,
+                    x: "0%",
+                    opacity: 0.8,
+                    duration: 2,
+                    ease: "power2.out",
                 },
+                "-=1.2",
             );
 
-            gsap.fromTo(
+            tl.to(
                 cloudRef2.current,
-                { x: "110vw" },
                 {
-                    x: "-200px",
-                    duration: 50,
-                    ease: "none",
-                    repeat: -1,
+                    x: "0%",
+                    opacity: 0.7,
+                    duration: 2.2,
+                    ease: "power2.out",
                 },
+                "<",
             );
         },
         { scope: containerRef },
@@ -202,23 +226,24 @@ const Events = () => {
     return (
         <section
             ref={containerRef}
-            className="min-h-screen w-full flex flex-col items-center justify-center py-20 bg-[#fff5ee] relative overflow-hidden"
+            className="min-h-screen w-full flex flex-col items-center justify-center py-20 relative overflow-hidden "
+            style={{ backgroundImage: `url(${eventsBg})` }}
         >
             <img
                 ref={cloudRef1}
                 src={cloud1}
                 alt="Cloud 1"
-                className="absolute top-[10%] left-0 w-[300px] md:w-[500px] opacity-80 pointer-events-none z-1"
+                className="absolute top-[8%] left-0 w-[300px] md:w-[500px] pointer-events-none z-10"
             />
 
             <img
                 ref={cloudRef2}
                 src={cloud2}
                 alt="Cloud 2"
-                className="absolute bottom-[15%] right-0 w-[350px] md:w-[600px] opacity-70 pointer-events-none z-1"
+                className="absolute bottom-[10%] right-0 w-[350px] md:w-[600px] pointer-events-none z-10"
             />
 
-            <div className="text-center mb-12 relative z-10">
+            <div className="text-center mb-12 relative z-30">
                 <h2
                     className="text-6xl md:text-8xl text-[#2d1b2d] drop-shadow-sm select-none"
                     style={{ fontFamily: "Akumaru, serif" }}
@@ -227,7 +252,7 @@ const Events = () => {
                 </h2>
             </div>
 
-            <div className="container mx-auto px-4 flex flex-wrap justify-center items-start gap-8 md:gap-10 relative z-10">
+            <div className="container mx-auto px-4 flex flex-wrap justify-center items-start gap-8 md:gap-10 relative z-30">
                 {eventList.map((event, index) => (
                     <EventScroll
                         key={index}
