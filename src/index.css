@@ -7,3 +7,10 @@
 body {
     overflow-x: hidden;
 }
+
+@font-face {
+    font-family: "Akumaru";
+    src: url("./assets/fonts/AKUMARU-PersonalUse.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}

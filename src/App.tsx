@@ -8,6 +8,9 @@ import { useGSAP } from "@gsap/react";
 import Navbar from "./components/navbar";
 gsap.registerPlugin(ScrollTrigger);
 
+// Events
+import Events from "./pages/events/Events";
+
 function App() {
     const firstHeroRef = useRef<HTMLDivElement | null>(null);
     const navbarRef = useRef<HTMLDivElement | null>(null);
@@ -47,6 +50,7 @@ function App() {
         <>
             <Navbar ref={navbarRef} />
             <Hero ref={firstHeroRef} />
+            <Events />
             <Petals count={50} />
         </>
     );
