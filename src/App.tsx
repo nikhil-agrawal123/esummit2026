@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
     const firstHeroRef = useRef<HTMLDivElement | null>(null);
     const navbarRef = useRef<HTMLDivElement | null>(null);
-    const scaleDownFactor = 0.35;
+    const scaleDownFactor = 0.4;
     let scaled = false;
     let hovered = false;
 
@@ -36,7 +36,7 @@ function App() {
         gsap.to(nav, {
             scaleX: scaleDownFactor,
             scaleY: scaleDownFactor + 0.05,
-            ease: "none",
+            ease: "back.out(1.7)",
             scrollTrigger: {
                 trigger: firstHeroRef.current,
                 start: "top top",
@@ -65,7 +65,7 @@ function App() {
                 scaleX: 1,
                 scaleY: 1,
                 duration: 0.3,
-                ease: "power2.out",
+                ease: "back.out(1.7)",
             });
         });
 
@@ -78,7 +78,7 @@ function App() {
                 scaleX: scaleDownFactor,
                 scaleY: scaleDownFactor + 0.05,
                 duration: 0.3,
-                ease: "power2.out",
+                ease: "back.out(1.7)",
             });
         });
     }, []);
