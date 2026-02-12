@@ -1,0 +1,140 @@
+
+/* Get your pass */
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    transform-origin: 100% 0%;
+}
+
+.branch {
+    width: 921px;
+    height: 547px;
+    position: absolute;
+    right: -10px;
+    z-index: 3;
+    transform-origin: 100% 0%;
+    /* animation: branchWind 10s ease-in-out infinite; */
+}
+
+.lantern-wrapper {
+    position: absolute;
+    transition: transform 300ms;
+    text-decoration: none;
+    width: 117px;
+    height: 184.3px;
+
+    z-index: 3;
+    object-fit: contain;
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lantern-chain {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -140%);
+    background-color: #421735;
+}
+
+.lantern {
+    width: 100%;
+    position: inherit;
+    height: 100%;
+}
+
+.lantern-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -53.5%);
+    font-family: "Akumaru";
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    /* letter-spacing: 0.05em; */
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+
+}
+
+.flower {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.75;
+    transform: translate(0%, 40%) scale(0.4);
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 350ms ease-out;
+}
+
+.lantern-wrapper:hover {
+    filter:
+        drop-shadow(0 0 30px rgba(255, 200, 130, 0.6))
+        drop-shadow(0 0 70px rgba(255, 160, 80, 0.35))
+        drop-shadow(0 0 110px rgba(255, 120, 60, 0.18));
+}
+
+.lantern-wrapper:hover .lantern-label {
+    transform: translate(-70%, -53.5%);
+}
+
+.lantern-wrapper:hover .flower {
+    transform: translate(-6%, 38%) scale(0.4);
+    opacity: 1;
+}
+
+.lantern-wrapper,
+.lantern-label,
+.flower {
+    will-change: transform, opacity;
+}
+
+.c1{display: none;}
+.l1 {
+    top: 285px;
+    right: 640px;
+}
+
+.c2{height: 190px;}
+.l2 {
+    top: 355px;
+    right: 505px;
+}
+
+.c3{height: 125px;}
+.l3 {
+    top: 265px;
+    right: 360px;
+}
+
+.c4{height: 225px;}
+.l4 {
+    top: 345px;
+    right: 230px;
+    height: 220px;
+}
+
+.c5{height: 130px;}
+.l5 {
+    top: 275px;
+    right: 70px;
+    height: 220px;
+}
+
+@keyframes branchWind {
+    0%   { transform: rotate(0deg); }
+    30%  { transform: rotate(0.6deg); }
+    60%  { transform: rotate(-0.4deg); }
+    100% { transform: rotate(0deg); }
+}

@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@font-face {
+    font-family: "Akumaru";
+    src: url("/src/assets/AKUMARU-PersonalUse.otf") format("opentype");
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;

@@ -1,11 +1,11 @@
 import Hero from "./pages/hero";
-import Petals from "./pages/Petals/petals";
+import Petals from "./components/Petals/petals";
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar/navbar";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
