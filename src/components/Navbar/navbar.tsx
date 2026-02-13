@@ -16,7 +16,7 @@ const navItems = [
 const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div ref={ref} className="navbar">
-      <img className="branch" src={branch} alt="branch" />
+      <img fetchPriority="high" className="branch" src={branch} alt="branch" />
       <div className="lanterns">
         {navItems.map((item, index) => (
           <a key={item.href} href={item.href} className={`lantern-wrapper l${index + 1}`}>
