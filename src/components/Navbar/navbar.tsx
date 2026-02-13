@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
-import branch from "../../assets/branch.png";
-import gLantern from "../../assets/lantern.png";
-import flower from "../../assets/flower.png";
+import branch from "../../assets/branch.webp";
+import gLantern from "../../assets/lantern.webp";
+import flower from "../../assets/flower.webp";
 import "./navbar.css";
 
 const navItems = [

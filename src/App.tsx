@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Navbar from "./components/Navbar/navbar";
+import About from "./pages/about";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
         <>
             <Navbar ref={navbarRef} />
             <Hero ref={firstHeroRef} />
+            <About />
             <Petals count={50} />
         </>
     );

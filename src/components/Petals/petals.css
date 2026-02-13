@@ -2,7 +2,7 @@
     pointer-events: none;
     overflow: hidden;
     position: fixed;
-    z-index: 0;
+    z-index: 10;
     inset: 0;
 }
 
@@ -15,7 +15,7 @@
     will-change: transform;
     position: absolute;
     left: 0;
-    z-index: 10;
+    z-index: 80;
     top: 0;
 }
 
