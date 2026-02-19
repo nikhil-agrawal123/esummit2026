@@ -1,0 +1,50 @@
+.petals-container {
+    pointer-events: none;
+    overflow: hidden;
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+}
+
+.petal {
+    background: radial-gradient(circle at 30% 30%, #e488b0, #ff8fb1);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 60% 80% 30% 90%;
+    animation-name: wind-fall;
+    will-change: transform;
+    position: absolute;
+    left: 0;
+    z-index: 80;
+    top: 0;
+}
+
+@keyframes wind-fall {
+    0% {
+        transform:
+            translate(var(--x-start), var(--y-start)) rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate(calc(var(--x-start) + var(--wobble)),
+                calc(var(--y-start) + 25vh)) rotate(calc(var(--spin) * 0.25));
+    }
+
+    50% {
+        transform:
+            translate(calc((var(--x-start) + var(--x-end)) / 2),
+                calc(var(--y-start) + 55vh)) rotate(calc(var(--spin) * 0.5));
+    }
+
+    75% {
+        transform:
+            translate(calc(var(--x-end) - var(--wobble)),
+                calc(var(--y-start) + 85vh)) rotate(calc(var(--spin) * 0.75));
+    }
+
+    100% {
+        transform:
+            translate(var(--x-end), var(--y-end)) rotate(var(--spin));
+    }
+}

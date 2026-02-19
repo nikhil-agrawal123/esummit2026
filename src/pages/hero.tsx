@@ -1,23 +1,62 @@
-import twentySix from "../assets/26.png";
-import { forwardRef } from "react";
+import twentySix from "../assets/heroTitle.svg";
+import passBrushstroke from "../assets/passBrushstroke.webp";
+import { forwardRef, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
-const Hero = forwardRef<HTMLDivElement, {}>((_, ref) => {
+const Hero = forwardRef<HTMLDivElement>((_, ref) => {
+  const bgRef = useRef<HTMLDivElement>(null);
+  const hutRef = useRef<HTMLDivElement>(null);
+  const transitionRef = useRef<HTMLDivElement>(null);
+  const rocksRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref || typeof ref === "function") return;
+
+    const ctx = gsap.context(() => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.9,
+        },
+      })
+        .to(bgRef.current, { y: 0, ease: "none" }, 0)
+        .to(hutRef.current, { y: -100, ease: "power3.out" }, 0)
+        .to(transitionRef.current, { y: -240, ease: "power4.out" }, 0)
+        .to(rocksRef.current, { y: -240, ease: "power4.out" }, 0)
+        .to(contentRef.current, { scale: 0, duration: 0.2 }, 0);
+    });
+
+    return () => ctx.revert();
+  }, [ref]);
+
   return (
     <>
-      <div ref={ref} className="min-h-screen w-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/background.webp')" }}/>
-
-      <div className="left">
-        <img src={twentySix} alt="26" className="w-96 absolute left-30 bottom-10" />
-        <svg className="absolute left-15 bottom-30 text-white font-bold" width="525" height="92" viewBox="0 0 600 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.6082 54.5284V69.8884H51.2002C51.2002 74.2404 51.2002 81.4084 51.2002 85.7604C34.8162 87.1684 18.4322 88.5764 2.04823 89.9844V69.8884H3.84023C3.58423 65.2804 3.32823 60.6724 3.20023 56.0644C2.04823 56.1924 1.02423 56.3204 0.000226736 56.3204V36.2244H2.17623C1.66423 24.3204 1.02423 12.5444 0.384227 0.640442H20.6082V36.2244H49.6642C49.6642 40.5764 49.6642 47.7444 49.6642 52.0964C39.9362 52.8644 30.2082 53.7604 20.6082 54.5284ZM22.1442 0.512444H54.2722C54.2722 4.99244 54.2722 12.0324 54.2722 16.3844C43.5202 17.9204 32.7682 19.3284 22.1442 20.7364V0.512444ZM72.9132 36.6084H110.289C110.289 40.7044 110.289 47.3604 110.289 51.4564C97.8732 52.8644 85.3292 54.1444 72.9132 55.5524V36.6084ZM185.643 0.512444C185.643 4.99244 185.643 12.0324 185.643 16.3844C174.891 17.9204 164.139 19.3284 153.515 20.7364V0.512444H185.643ZM184.747 70.1444C185.515 70.1444 186.283 70.0164 186.923 70.0164C187.307 74.3684 187.691 81.5364 187.947 85.8884C169.259 88.4484 150.443 90.2404 131.499 91.2644L132.011 71.0404C143.915 71.4244 155.819 71.2964 167.723 70.9124C167.723 64.6404 167.595 58.3684 167.339 52.0964C154.923 53.3764 142.507 54.4004 129.963 54.7844L130.347 37.7604C131.243 37.7604 132.139 37.7604 133.035 37.7604C132.011 25.2164 131.499 12.6724 131.499 0.000442505L151.595 1.66444C150.571 13.6964 150.059 25.7284 149.931 37.7604C155.563 37.6324 161.195 37.5044 166.699 37.2484C166.699 36.3524 166.699 35.4564 166.571 34.5604L186.667 35.0724C186.667 35.3284 186.667 35.7124 186.667 35.9684C187.307 35.8404 188.075 35.8404 188.715 35.8404C188.971 39.5524 189.611 45.5684 189.867 49.2804C188.715 49.4084 187.435 49.5364 186.155 49.7924C185.771 56.5764 185.387 63.3604 184.747 70.1444ZM268.923 1.40844V36.2244H270.843C270.843 40.5764 270.843 47.7444 270.843 52.0964C270.203 52.2244 269.563 52.3524 268.923 52.3524V89.9844C264.571 89.9844 257.403 89.9844 253.051 89.9844C252.923 88.7044 252.923 87.5524 252.923 86.4004C238.715 87.5524 224.635 88.8324 210.555 89.9844V69.8884H212.347C211.195 46.8484 210.043 23.6804 209.019 0.640442H229.115V69.8884H252.027C251.771 65.0244 251.643 60.0324 251.387 55.1684C248.827 55.5524 246.267 55.9364 243.707 56.3204V36.2244H250.491C249.851 24.5764 249.339 13.0564 248.827 1.40844H268.923ZM351.863 0.256439L371.959 0.896439L369.143 89.6004C364.663 89.4724 357.623 89.2164 353.271 89.0884C352.887 66.8164 352.503 44.6724 352.247 22.4004C348.535 22.6564 344.823 23.0404 341.111 23.1684C340.855 27.5204 340.471 31.8724 340.343 36.2244C342.519 35.8404 344.695 35.4564 346.871 34.8164C347.767 38.5284 349.303 44.2884 350.199 48.0004C346.871 49.1524 343.543 50.1764 340.087 51.0724C340.087 56.4484 340.215 61.9524 340.471 67.3284C336.119 67.5844 329.079 67.9684 324.727 68.2244C324.087 63.4884 323.703 58.7524 323.319 54.1444C320.503 54.4004 317.559 54.6564 314.615 54.6564L315.767 37.6324C317.943 37.7604 320.247 37.8884 322.551 37.8884C322.423 33.2804 322.295 28.6724 322.423 24.1924C318.583 24.3204 314.871 24.3204 311.159 24.4484V89.9844C306.679 89.9844 299.639 89.9844 295.287 89.9844C293.879 60.1604 292.471 30.3364 291.063 0.640442H311.159V5.12044C315.127 5.37644 319.095 5.50444 323.063 5.50444C323.191 3.84044 323.319 2.04844 323.447 0.384438L343.415 3.20044C343.287 3.96844 343.159 4.86444 343.031 5.63244C345.975 5.63244 349.047 5.50444 351.991 5.50444C351.991 3.71244 351.863 2.04844 351.863 0.256439ZM453.038 0.256439L473.134 0.896439L470.318 89.6004C465.838 89.4724 458.798 89.2164 454.446 89.0884C454.062 66.8164 453.678 44.6724 453.422 22.4004C449.71 22.6564 445.998 23.0404 442.286 23.1684C442.03 27.5204 441.646 31.8724 441.518 36.2244C443.694 35.8404 445.87 35.4564 448.046 34.8164C448.942 38.5284 450.478 44.2884 451.374 48.0004C448.046 49.1524 444.718 50.1764 441.262 51.0724C441.262 56.4484 441.39 61.9524 441.646 67.3284C437.294 67.5844 430.254 67.9684 425.902 68.2244C425.262 63.4884 424.878 58.7524 424.494 54.1444C421.678 54.4004 418.734 54.6564 415.79 54.6564L416.942 37.6324C419.118 37.7604 421.422 37.8884 423.726 37.8884C423.598 33.2804 423.47 28.6724 423.598 24.1924C419.758 24.3204 416.046 24.3204 412.334 24.4484V89.9844C407.854 89.9844 400.814 89.9844 396.462 89.9844C395.054 60.1604 393.646 30.3364 392.238 0.640442H412.334V5.12044C416.302 5.37644 420.27 5.50444 424.238 5.50444C424.366 3.84044 424.494 2.04844 424.622 0.384438L444.59 3.20044C444.462 3.96844 444.334 4.86444 444.206 5.63244C447.15 5.63244 450.222 5.50444 453.166 5.50444C453.166 3.71244 453.038 2.04844 453.038 0.256439ZM522.469 16.3844C520.549 16.7684 518.629 17.0244 516.709 17.2804V70.6564H521.189C521.189 75.0084 521.189 82.1764 521.189 86.5284C519.653 86.7844 518.117 87.0404 516.709 87.2964V89.9844C512.229 89.9844 505.189 89.9844 500.837 89.9844C500.837 89.8564 500.837 89.8564 500.837 89.8564C498.789 90.1124 496.741 90.4964 494.821 90.7524V70.6564H499.813C499.045 53.7604 498.277 36.8644 497.381 19.9684C495.845 20.2244 494.181 20.4804 492.645 20.7364V0.512444H522.469C522.469 4.99244 522.469 12.0324 522.469 16.3844ZM599.828 0.512444C599.828 4.99244 599.828 12.0324 599.828 16.3844C588.948 17.1524 578.068 17.9204 567.188 18.6884H578.964V89.9844C574.484 89.9844 567.444 89.9844 563.092 89.9844C561.684 66.3044 560.276 42.7524 558.868 19.2004C551.828 19.7124 544.788 20.2244 537.876 20.7364V0.512444H599.828Z" fill="white"/>
-          </svg>
-      </div>
-
-      <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/background.webp')" }} />
-      <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/background.webp')" }} />
-      <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/background.webp')" }} />
+      <section ref={ref} className="relative min-h-screen w-full overflow-hidden">
+        <div ref={bgRef} className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{ backgroundImage: "url('/bg-layer.webp')" }} />
+        <div ref={hutRef} className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10" style={{ backgroundImage: "url('/hut-layer.webp')" }}/>
+        <div ref={rocksRef} className="absolute inset-0 bg-cover bg-center bg-no-repeat z-20" style={{ backgroundImage: "url('/rocks-layer.webp')" }}/>
+        <div ref={transitionRef} className="absolute left-0 right-0 -bottom-60 h-60 bg-no-repeat bg-center pointer-events-none will-change-transform z-30" style={{ backgroundImage: "url('/background1.png')" }}/>
+        <div ref={contentRef} className="absolute bottom-15 left-30 z-30">
+          <div className="flex items-center justify-center flex-col">
+            <img src={twentySix} alt="26" className="w-lg" />
+            <div className="w-96 flex items-center justify-center relative">
+              <img src={passBrushstroke} alt="" />
+              <a href="/pass" className="absolute inset-0 flex items-center justify-center font-['Akumaru'] text-[43px] text-[#98440C]">
+                Get Your Pass
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </>
   );
 });
+
 export default Hero;

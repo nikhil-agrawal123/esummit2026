@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@font-face {
+    font-family: "Akumaru";
+    src: url("/src/assets/AKUMARU-PersonalUse.woff2") format("woff2");
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,4 +12,6 @@
 }
 body {
     overflow-x: hidden;
+    background-image: url("/background1.png");
 }
+
