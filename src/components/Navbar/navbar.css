@@ -48,22 +48,42 @@
     height: 100%;
 }
 
-.lantern-label {
+/* .lantern-label {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-40%, -53.5%);
+    transform: translate(-50%, -50%);
     font-family: "Akumaru";
     color: #5B433C;
     opacity: 0.9;
     font-size: 18px;
     font-weight: 400;
-    /* letter-spacing: 0.05em; */
     writing-mode: vertical-lr;
     text-orientation: upright;
     transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
+    
+    } */
+.lantern-label {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    width: 40px;
+    max-height: 140px;
+    font-family: "Akumaru";
+    color: #5B433C;
+    opacity: 0.9;
+    font-size: 18px;
+    font-weight: 400;
 
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+    pointer-events: none;
 }
 
 .flower {
@@ -85,7 +105,7 @@
 
 .lantern-wrapper:hover .lantern-label {
     opacity: 1;
-    transform: translate(-70%, -53.5%);
+    transform: translate(-70%, -50%);
 }
 
 .lantern-wrapper:hover .flower {
