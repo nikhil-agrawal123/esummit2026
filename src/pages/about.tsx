@@ -1,7 +1,7 @@
 import React from "react";
-import bg from "../assets/about/background.png";
-import building from "../assets/about/IIITD_asset.png";
-import logo from "../assets/about/logo.png";
+import bg from "../assets/about_background.png";
+import building from "../assets/about_IIITD_asset.png";
+import logo from "../assets/about_logo.png";
 
 const About: React.FC = () => {
   return (
