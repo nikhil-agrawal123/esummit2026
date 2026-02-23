@@ -10,6 +10,7 @@ import About from "./pages/about";
 import Events from "./pages/events";
 import Speakers from "./pages/speakers";
 import Sponsors from "./pages/sponsors";
+import Zonals from "./pages/zonals"
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -95,8 +96,10 @@ function App() {
             <Navbar ref={navbarRef} />
             <Hero ref={firstHeroRef} />
             <About />
+            <Zonals />
             <Events />
             <Speakers />
+            
             <Sponsors />
             <Petals count={50} />
         </>
