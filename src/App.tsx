@@ -7,6 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Navbar from "./components/Navbar/navbar";
 import About from "./pages/about";
+import Events from "./pages/events";
 import Sponsors from "./pages/sponsors";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,14 +31,13 @@ function App() {
         requestAnimationFrame(raf);
     }, []);
 
-
     useGSAP(() => {
         if (!firstHeroRef.current || !navbarRef.current) return;
 
         const nav = navbarRef.current;
         gsap.to(nav, {
             scaleX: defaultScale,
-            scaleY: defaultScale+0.05
+            scaleY: defaultScale + 0.05,
         });
         gsap.to(nav, {
             scaleX: scaleDownFactor,
@@ -48,13 +48,13 @@ function App() {
                 start: "top top",
                 end: "bottom top",
                 scrub: true,
-                onUpdate: self => {
+                onUpdate: (self) => {
                     scaled = self.progress > 0.05;
                     if (!scaled && hovered) {
                         hovered = false;
                         gsap.to(nav, {
                             scaleX: defaultScale,
-                            scaleY: defaultScale+0.05,
+                            scaleY: defaultScale + 0.05,
                             duration: 0.2,
                         });
                     }
@@ -69,7 +69,7 @@ function App() {
 
             gsap.to(nav, {
                 scaleX: defaultScale,
-                scaleY: defaultScale+0.05,
+                scaleY: defaultScale + 0.05,
                 duration: 0.3,
                 ease: "back.out(1.7)",
             });
@@ -94,6 +94,7 @@ function App() {
             <Navbar ref={navbarRef} />
             <Hero ref={firstHeroRef} />
             <About />
+            <Events />
             <Sponsors />
             <Petals count={50} />
         </>
