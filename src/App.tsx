@@ -22,7 +22,7 @@ function App() {
     let hovered = false;
 
     useEffect(() => {
-        const lenis = new Lenis({ lerp: 0.1 });
+        const lenis = new Lenis({ lerp: 0.08 });
 
         const raf = (time: number) => {
             lenis.raf(time);

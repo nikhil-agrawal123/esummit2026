@@ -2,10 +2,8 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import speakerWindow from "../assets/events/speaker-window.png";
-import buttonTexture from "../assets/events/back.png";
+// import buttonTexture from "../assets/events/back.png";
 import eventsBg from "../assets/events/events-bg.png";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Speakers = () => {
     const containerRef = useRef<HTMLElement>(null);
