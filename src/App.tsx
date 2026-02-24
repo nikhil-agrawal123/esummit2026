@@ -16,13 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
     const firstHeroRef = useRef<HTMLDivElement | null>(null);
     const navbarRef = useRef<HTMLDivElement | null>(null);
-    const defaultScale = 0.85;
+    const defaultScale = 0.75;
     const scaleDownFactor = 0.4;
     let scaled = false;
     let hovered = false;
 
     useEffect(() => {
-        const lenis = new Lenis({ lerp: 0.08 });
+        const lenis = new Lenis({ lerp: 0.1 });
 
         const raf = (time: number) => {
             lenis.raf(time);
@@ -37,7 +37,7 @@ function App() {
         if (!firstHeroRef.current || !navbarRef.current) return;
 
         const nav = navbarRef.current;
-        gsap.to(nav, {
+        gsap.set(nav, {
             scaleX: defaultScale,
             scaleY: defaultScale + 0.05,
         });
