@@ -16,16 +16,16 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative overflow-hidden rounded-t-xl" style={{ background: "linear-gradient(to bottom, #2a1a1f 0%, #1a0f12 100%)" }}>
+        <footer className="relative overflow-hidden py-12.5 rounded-t-xl" style={{ background: "linear-gradient(to bottom, #2a1a1f 0%, #1a0f12 100%)" }}>
             {/* Decorative top border */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#e488b0] to-transparent opacity-60" />
 
-            <div className="relative w-full px-6 md:px-12 lg:px-16 py-8">
+            <div className="relative w-full px-6 md:px-12 lg:px-16 py-4">
                 {/* Main Content - Four Column Layout */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
                     
                     {/* 1. E-SUMMIT */}
-                    <div className="flex flex-col items-start gap-3">
+                    <div className="flex flex-col items-start gap-3 p-5">
                         <div className="flex items-center gap-3">
                             <div className="relative">
                                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-br from-[#e488b0] to-[#7b3f00] opacity-40" />
@@ -48,16 +48,16 @@ const Footer = () => {
                     </div>
 
                     {/* 2. NAVIGATE */}
-                    <div className="flex flex-col items-start gap-3">
+                    <div className="flex flex-col items-start gap-3 p-5">
                         <h4 className="text-[#e488b0] text-2xl tracking-widest" style={{ fontFamily: "Akumaru" }}>
                             NAVIGATE
                         </h4>
-                        <nav className="grid grid-cols-2 gap-2">
+                        <nav className="grid grid-cols-2 gap-5">
                             {navLinks.map((link) => (
                                 <button
                                     key={link.name}
                                     onClick={() => handleNavClick(link.target)}
-                                    className="text-[#d4a574] hover:text-[#e488b0] text-lg transition-colors duration-300 text-left"
+                                    className="text-[#d4a574] hover:text-[#e488b0] text-lg transition-colors duration-300 text-left cursor-pointer"
                                     style={{ fontFamily: "Akumaru" }}
                                 >
                                     {link.name}
@@ -67,7 +67,7 @@ const Footer = () => {
                     </div>
 
                     {/* 3. CONTACT */}
-                    <div className="flex flex-col items-start gap-3">
+                    <div className="flex flex-col items-start gap-3 p-5">
                         <h4 className="text-[#e488b0] text-2xl tracking-widest" style={{ fontFamily: "Akumaru" }}>
                             CONTACT
                         </h4>
@@ -87,7 +87,7 @@ const Footer = () => {
                                     key={social.label}
                                     href={social.href}
                                     target="_blank"
-                                    className="text-[#d4a574] hover:text-[#e488b0] text-base transition-colors duration-300"
+                                    className="text-[#d4a574] hover:text-[#e488b0] text-base transition-colors duration-300 p-2"
                                     style={{ fontFamily: "Akumaru" }}
                                 >
                                     {social.label}
@@ -97,7 +97,7 @@ const Footer = () => {
                     </div>
 
                     {/* 4. MAP */}
-                    <div className="flex flex-col items-start gap-3">
+                    <div className="flex flex-col items-start gap-3 p-5 ">
                         <h4 className="text-[#e488b0] text-2xl tracking-widest" style={{ fontFamily: "Akumaru" }}>
                             LOCATE US
                         </h4>

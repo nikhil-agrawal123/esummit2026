@@ -1,9 +1,6 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
 import speakerWindow from "../assets/events/speaker-window.png";
-// import buttonTexture from "../assets/events/back.png";
-import eventsBg from "../assets/events/events-bg.png";
 
 const Speakers = () => {
     const containerRef = useRef<HTMLElement>(null);
@@ -68,7 +65,7 @@ const Speakers = () => {
             ref={containerRef}
             className="min-h-screen w-full flex flex-col items-center justify-center py-24 relative overflow-hidden"
             style={{
-                backgroundImage: `url(${eventsBg})`,
+                backgroundImage: `url(/background.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
