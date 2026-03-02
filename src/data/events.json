@@ -1,114 +1,181 @@
 {
   "featuredEvents": [
     {
-      "id": 1,
-      "title": "PITCH\nCAFE\nEVENT",
-      "date": "March 13, 2026",
-      "venue": "IIIT Delhi, LHC",
-      "link": "#"
-    },
+    "id": 1650160,
+    "title": "E-Pitch Café - Startup Track",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160"
+  },
     {
-      "id": 2,
-      "title": "HACK\nATHON\nFINALS",
-      "date": "March 14, 2026",
-      "venue": "IIIT Delhi, R&D",
-      "link": "#"
-    },
+    "id": 1647851,
+    "title": "Hack4Impact",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851"
+  },
     {
-      "id": 3,
-      "title": "SPEAKER\nSESSIONS\nLIVE",
-      "date": "March 15, 2026",
-      "venue": "Main Auditorium",
-      "link": "#"
-    },
-    {
-      "id": 4,
-      "title": "NET\nWORKING\nDINNER",
-      "date": "March 15, 2026",
-      "venue": "Dining Block",
-      "link": "#"
-    }
+    "id": 1644413,
+    "title": "Venture Verse",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413"
+  },
+  {
+    "id": 1647293,
+    "title": "Strategy Showdown",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293"
+  }
   ],
   "allEvents": [
     {
-      "id": 1,
-      "title": "PITCH\nCAFE\nEVENT",
-      "date": "March 13, 2026",
-      "venue": "IIIT Delhi, LHC",
-      "link": "#",
-      "category": "Competition"
-    },
-    {
-      "id": 2,
-      "title": "HACK\nATHON\nFINALS",
-      "date": "March 14, 2026",
-      "venue": "IIIT Delhi, R&D",
-      "link": "#",
-      "category": "Competition"
-    },
-    {
-      "id": 3,
-      "title": "SPEAKER\nSESSIONS\nLIVE",
-      "date": "March 15, 2026",
-      "venue": "Main Auditorium",
-      "link": "#",
-      "category": "Talk"
-    },
-    {
-      "id": 4,
-      "title": "NET\nWORKING\nDINNER",
-      "date": "March 15, 2026",
-      "venue": "Dining Block",
-      "link": "#",
-      "category": "Networking"
-    },
-    {
-      "id": 5,
-      "title": "STARTUP\nEXPO\n2026",
-      "date": "March 13, 2026",
-      "venue": "Exhibition Hall",
-      "link": "#",
-      "category": "Exhibition"
-    },
-    {
-      "id": 6,
-      "title": "VC\nMEET\nGREET",
-      "date": "March 14, 2026",
-      "venue": "Conference Room A",
-      "link": "#",
-      "category": "Networking"
-    },
-    {
-      "id": 7,
-      "title": "BUSINESS\nPLAN\nCOMP",
-      "date": "March 14, 2026",
-      "venue": "IIIT Delhi, LHC",
-      "link": "#",
-      "category": "Competition"
-    },
-    {
-      "id": 8,
-      "title": "FOUNDER\nFIRESIDE\nCHAT",
-      "date": "March 15, 2026",
-      "venue": "Main Auditorium",
-      "link": "#",
-      "category": "Talk"
-    },
-    {
-      "id": 9,
-      "title": "IDEATION\nWORK\nSHOP",
-      "date": "March 13, 2026",
-      "venue": "Workshop Hall",
-      "link": "#",
-      "category": "Workshop"
-    },
-    {
-      "id": 10,
-      "title": "PRODUCT\nDEMO\nDAY",
-      "date": "March 15, 2026",
-      "venue": "Exhibition Hall",
-      "link": "#",
-      "category": "Exhibition"
-    }
+    "id": 1647304,
+    "title": "Battle of Bands",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/events/battle-of-bands-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647304"
+  },
+  {
+    "id": 1650748,
+    "title": "Aarambh 2.0: BGMI Tournament",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/events/aarambh-20-bgmi-tournament-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650748"
+  },
+  {
+    "id": 1650160,
+    "title": "E-Pitch Café - Startup Track",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160"
+  },
+  {
+    "id": 1647851,
+    "title": "Hack4Impact",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851"
+  },
+  {
+    "id": 1647305,
+    "title": "Trading Heist",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/trading-heist-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647305"
+  },
+  {
+    "id": 1644408,
+    "title": "Pitch Café 10.0 - Student Track",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/pitch-cafe-100-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644408"
+  },
+  {
+    "id": 1644417,
+    "title": "Tesseract",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/quiz/tesseract-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644417"
+  },
+  {
+    "id": 1644413,
+    "title": "Venture Verse",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413"
+  },
+  {
+    "id": 1644415,
+    "title": "Bid Bonanza",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/bid-bonanza-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644415"
+  },
+  {
+    "id": 1647293,
+    "title": "Strategy Showdown",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293"
+  },
+  {
+    "id": 1647301,
+    "title": "Mind The Product",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/mind-the-product-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647301"
+  },
+  {
+    "id": 1647289,
+    "title": "BlindStorm",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/blindstorm-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647289"
+  },
+  {
+    "id": 1647842,
+    "title": "B-Plan",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/b-plan-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647842"
+  },
+  {
+    "id": 1647302,
+    "title": "IPL Auction Simulation",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/events/ipl-auction-simulation-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647302"
+  },
+  {
+    "id": 1647849,
+    "title": "Case Study Competition",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/case-study-competition-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647849"
+  },
+  {
+    "id": 1640770,
+    "title": "Campus Ambassador Internship",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/internships/campus-ambassador-internship-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1640770"
+  },
+  {
+    "id": 1630994,
+    "title": "Innovate for Impact",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1630994"
+  },
+  {
+    "id": 1626753,
+    "title": "Innovate for Impact",
+    "date": "",
+    "venue": "D. Y. Patil International University (DYPIU), Akurdi, Pune",
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-d-y-patil-international-university-dypiu-akurdi-pune-1626753"
+  },
+  {
+    "id": 1623834,
+    "title": "Innovate for Impact",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623834"
+  },
+  {
+    "id": 1623845,
+    "title": "Mafia Game",
+    "date": "",
+    "venue": "IIIT-Delhi",
+    "link": "https://unstop.com/events/mafia-game-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623845"
+  },
+  {
+    "id": 1625115,
+    "title": "Innovate for Impact",
+    "date": "",
+    "venue": "D.Y. Patil College of Engineering, Pune",
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-dy-patil-college-of-engineering-pune-1625115"
+  }
   ]
 }
