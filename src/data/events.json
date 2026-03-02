@@ -3,179 +3,205 @@
     {
     "id": 1650160,
     "title": "E-Pitch Café - Startup Track",
-    "date": "",
+    "date": "14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160"
+    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160",
+    "desc": "Pitch your ESDM startup and unlock funding, mentorship, and incubation opportunities"
+
   },
     {
     "id": 1647851,
     "title": "Hack4Impact",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851"
+    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851",
+      "desc": "A 24-hour hackathon at E-Summit ’26 to build impactful tech solutions"
   },
     {
     "id": 1644413,
     "title": "Venture Verse",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413"
+    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413",
+      "desc": " Step into the VC world at E-Summit ’26 and compete for ₹40,000 with sharp startup analysis skills"
   },
   {
     "id": 1647293,
     "title": "Strategy Showdown",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293"
+    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293",
+    "desc": "A high-intensity consulting case competition at E-Summit ’26 to solve real business challenges"
   }
   ],
   "allEvents": [
     {
     "id": 1647304,
     "title": "Battle of Bands",
-    "date": "",
+    "date": "13th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/events/battle-of-bands-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647304"
+    "link": "https://unstop.com/events/battle-of-bands-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647304",
+      "desc": "An electrifying live music showdown for bands to compete"
   },
   {
     "id": 1650748,
     "title": "Aarambh 2.0: BGMI Tournament",
-    "date": "",
+    "date": "13th-14th March",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/events/aarambh-20-bgmi-tournament-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650748"
+    "link": "https://unstop.com/events/aarambh-20-bgmi-tournament-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650748",
+    "desc": "Battle through online qualifiers and dominate the LAN finals"
   },
   {
     "id": 1650160,
     "title": "E-Pitch Café - Startup Track",
-    "date": "",
+    "date": "14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160"
+    "link": "https://unstop.com/competitions/e-pitch-cafe-startup-track-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1650160",
+    "desc": " Pitch your ESDM startup and unlock funding, mentorship, and incubation opportunities."
   },
   {
     "id": 1647851,
     "title": "Hack4Impact",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851"
+    "link": "https://unstop.com/competitions/hack4impact-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647851",
+    "desc": " A 24-hour hackathon at E-Summit ’26 to build impactful tech solutions"
   },
   {
     "id": 1647305,
     "title": "Trading Heist",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/trading-heist-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647305"
+    "link": "https://unstop.com/competitions/trading-heist-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647305",
+    "desc": " A high-intensity trading simulation to outsmart the market"
   },
   {
     "id": 1644408,
     "title": "Pitch Café 10.0 - Student Track",
-    "date": "",
+    "date": "13th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/pitch-cafe-100-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644408"
+    "link": "https://unstop.com/competitions/pitch-cafe-100-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644408",
+    "desc": "pitch your startup idea and compete for ₹50,000 plus mentorship"
   },
   {
     "id": 1644417,
     "title": "Tesseract",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/quiz/tesseract-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644417"
+    "link": "https://unstop.com/quiz/tesseract-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644417",
+    "desc": " A city-spanning treasure hunt packed with cryptic clues"
   },
   {
     "id": 1644413,
     "title": "Venture Verse",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413"
+    "link": "https://unstop.com/competitions/venture-verse-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644413",
+    "desc": "Step into the VC world with sharp startup analysis skills."
   },
   {
     "id": 1644415,
     "title": "Bid Bonanza",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/bid-bonanza-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644415"
+    "link": "https://unstop.com/competitions/bid-bonanza-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1644415",
+    "desc": "A fast-paced startup auction where strategy and smart bidding take the lead"
   },
   {
     "id": 1647293,
     "title": "Strategy Showdown",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293"
+    "link": "https://unstop.com/competitions/strategy-showdown-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647293",
+    "desc": "A high-intensity consulting case competition to solve real business challenges"
   },
   {
     "id": 1647301,
     "title": "Mind The Product",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/mind-the-product-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647301"
+    "link": "https://unstop.com/competitions/mind-the-product-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647301",
+    "desc": "A high-intensity product and UX challenge to design and deliver impactful solutions"
   },
   {
     "id": 1647289,
     "title": "BlindStorm",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/blindstorm-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647289"
+    "link": "https://unstop.com/competitions/blindstorm-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647289",
+    "desc": "A high-intensity ideation challenge to turn bold ideas into impactful solutions under pressure"
   },
   {
     "id": 1647842,
     "title": "B-Plan",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/b-plan-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647842"
+    "link": "https://unstop.com/competitions/b-plan-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647842",
+    "desc": "High-intensity startup competition to turn ideas into investor-ready business plans"
   },
   {
     "id": 1647302,
     "title": "IPL Auction Simulation",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/events/ipl-auction-simulation-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647302"
+    "link": "https://unstop.com/events/ipl-auction-simulation-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647302",
+    "desc": "an IPL-style bidding showdown to build the smartest winning squad"
   },
   {
     "id": 1647849,
     "title": "Case Study Competition",
-    "date": "",
+    "date": "13th–14th March 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/case-study-competition-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647849"
+    "link": "https://unstop.com/competitions/case-study-competition-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1647849",
+    "desc": "A high-intensity consulting challenge to solve real-world business problems"
   },
   {
     "id": 1640770,
     "title": "Campus Ambassador Internship",
-    "date": "",
+    "date": "28th February 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/internships/campus-ambassador-internship-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1640770"
+    "link": "https://unstop.com/internships/campus-ambassador-internship-e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-1640770",
+    "desc": "represent E-Summit ’26 on your campus and drive registrations, outreach, and engagement"
   },
   {
     "id": 1630994,
     "title": "Innovate for Impact",
-    "date": "",
+    "date": "7th February 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1630994"
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1630994",
+    "desc": "Zonal ideathon to solve real-world problems and qualify for the E-Summit ’26 Hackathon"
   },
   {
     "id": 1626753,
     "title": "Innovate for Impact",
-    "date": "",
+    "date": "1st February 2026",
     "venue": "D. Y. Patil International University (DYPIU), Akurdi, Pune",
-    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-d-y-patil-international-university-dypiu-akurdi-pune-1626753"
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-d-y-patil-international-university-dypiu-akurdi-pune-1626753",
+    "desc":""
   },
   {
     "id": 1623834,
     "title": "Innovate for Impact",
-    "date": "",
+    "date": "29th January 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623834"
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623834",
+    "desc": "Zonal ideathon to solve real-world problems and qualify for the E-Summit ’26 Hackathon"
   },
   {
     "id": 1623845,
     "title": "Mafia Game",
-    "date": "",
+    "date": "29th January 2026",
     "venue": "IIIT-Delhi",
-    "link": "https://unstop.com/events/mafia-game-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623845"
+    "link": "https://unstop.com/events/mafia-game-e-summit-2026-zonals-indraprastha-institute-of-information-technology-iiit-delhi-1623845",
+    "desc": "A fast-paced social deduction game of strategy, persuasion, and fun"
   },
   {
     "id": 1625115,
     "title": "Innovate for Impact",
-    "date": "",
+    "date": "19th January 2026",
     "venue": "D.Y. Patil College of Engineering, Pune",
-    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-dy-patil-college-of-engineering-pune-1625115"
+    "link": "https://unstop.com/competitions/innovate-for-impact-e-summit-2026-zonals-dy-patil-college-of-engineering-pune-1625115",
+    "desc": "Zonal ideathon to solve real-world problems and qualify for the E-Summit ’26 Hackathon"
   }
   ]
 }
