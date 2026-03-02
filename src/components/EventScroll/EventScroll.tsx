@@ -124,6 +124,7 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
 
                             <a
                                 href={event.link}
+                                target="_blank"
                                 className="relative group self-center flex items-center justify-center mt-10 transition-transform duration-300 hover:scale-105 active:scale-95"
                             >
                                 <img

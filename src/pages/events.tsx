@@ -30,6 +30,7 @@ const Events = () => {
                         repeat: -1,
                         delay: i * 0.2,
                     });
+                {/* Creative Touch: A giant, faint number in the background */}
 
                     gsap.to(scroll, {
                         rotation: -randomAngle,
