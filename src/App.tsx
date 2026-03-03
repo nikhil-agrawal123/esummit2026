@@ -13,6 +13,7 @@ import Sponsors from "./pages/sponsors";
 import Zonals from "./pages/zonals";
 import AllEvents from "./pages/allEvents";
 import Footer from "./pages/footer";
+import TeamPage from "./pages/TeamPage";
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
@@ -44,6 +45,15 @@ function App() {
                         element={
                             <>
                                 <AllEvents />
+                                <Petals count={50} />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/team"
+                        element={
+                            <>
+                                <TeamPage />
                                 <Petals count={50} />
                             </>
                         }
