@@ -5,6 +5,7 @@ import speakersData from "../data/speakers.json";
 import left from "../assets/events/window-left-panel.png";
 import right from "../assets/events/window-right-panel.png";
 import subtracted from "../assets/events/window-subtract.png";
+import Marquee from "react-fast-marquee";
 
 interface Speaker {
     name: string;
@@ -17,9 +18,11 @@ const Speakers = () => {
     const containerRef = useRef<HTMLElement>(null);
     const headingRef = useRef<HTMLDivElement>(null);
     const marqueeRef = useRef<HTMLDivElement>(null);
-    const marqueeInnerRef = useRef<HTMLDivElement>(null);
     const speakerCardsRef = useRef<HTMLDivElement[]>([]);
+    const doorStateRef = useRef<Map<HTMLElement, boolean>>(new Map());
+
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+    const [isActive, setIsActive] = useState(false);
 
     const speakers: Speaker[] = speakersData.allSpeakers;
     const duplicatedSpeakers = [...speakers, ...speakers, ...speakers];
@@ -39,8 +42,25 @@ const Speakers = () => {
     }, []);
 
     useEffect(() => {
+        if (!containerRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsActive(entry.isIntersecting);
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isDesktop || !isActive) return;
+
+        const doorState = doorStateRef.current;
+
         const ctx = gsap.context(() => {
-            // Heading animation on scroll
             gsap.from(headingRef.current, {
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -53,91 +73,69 @@ const Speakers = () => {
                 ease: "power2.out",
             });
 
-            if (!marqueeInnerRef.current || !isDesktop) return;
-
-            const cardWidth = 320; // Width of each speaker card + gap
-            const totalWidth = speakers.length * cardWidth;
-
-            // Set initial position
-            gsap.set(marqueeInnerRef.current, { x: 0 });
-
-            // Infinite marquee animation
-            const marqueeAnim = gsap.to(marqueeInnerRef.current, {
-                x: -totalWidth,
-                duration: speakers.length * 4, // 4 seconds per speaker
-                ease: "none",
-                repeat: -1,
-            });
-
-            const doorStates = new Map<HTMLElement, number>(); // Track current target for each door
-            
             const updateDoors = () => {
                 if (!marqueeRef.current) return;
-                
-                const marqueeRect = marqueeRef.current.getBoundingClientRect();
-                const visibleLeft = marqueeRect.left;
-                const visibleRight = marqueeRect.right;
-                const visibleWidth = visibleRight - visibleLeft;
-                const edgeZone = visibleWidth * 0.3; // 30% edge zone for door animation
 
-                speakerCardsRef.current.forEach((card) => {
-                    if (!card) return;
+                const marqueeRect = marqueeRef.current.getBoundingClientRect();
+
+                speakerCardsRef.current.forEach((card, index) => {
                     const cardRect = card.getBoundingClientRect();
-                    const cardCenter = cardRect.left + cardRect.width / 2;
-                    
+
                     const leftDoor = card.querySelector(".door-left") as HTMLElement;
                     const rightDoor = card.querySelector(".door-right") as HTMLElement;
-                    
                     if (!leftDoor || !rightDoor) return;
 
-                    // Calculate door open percentage based on position
-                    let openPercent = 1;
+                    const visibleWidth = Math.max(
+                        0,
+                        Math.min(cardRect.right, marqueeRect.right) -
+                        Math.max(cardRect.left, marqueeRect.left)
+                    );
 
-                    // Entering from right
-                    if (cardCenter > visibleRight - edgeZone) {
-                        openPercent = Math.max(0, (visibleRight - cardCenter) / edgeZone);
-                    }
-                    // Exiting to left
-                    else if (cardCenter < visibleLeft + edgeZone) {
-                        openPercent = Math.max(0, (cardCenter - visibleLeft) / edgeZone);
-                    }
+                    const visibilityRatio = visibleWidth / cardRect.width;
+                    const isVisible = visibilityRatio > 0.5;
 
-                    // Apply easing curve for smoother motion
-                    const easedPercent = gsap.parseEase("power2.out")(openPercent);
-                    const slideAmount = 45 * easedPercent; // Max 45% slide
-                    
-                    const currentTarget = doorStates.get(leftDoor) ?? -1;
-                    if (Math.abs(currentTarget - slideAmount) > 0.5) {
-                        doorStates.set(leftDoor, slideAmount);
-                        
-                        // Smooth tween to target position
+                    const currentlyOpen = doorState.get(card) ?? false;
+
+                    if (isVisible === currentlyOpen) return;
+
+                    doorState.set(card, isVisible);
+
+                    gsap.killTweensOf([leftDoor, rightDoor]);
+
+                    if (isVisible) {
                         gsap.to(leftDoor, {
-                            x: `-${slideAmount}%`,
-                            duration: 0.3,
-                            ease: "power2.out",
-                            overwrite: true
+                            x: -125,
+                            duration: 1,
+                            delay: index * 0.1,
+                            ease: "power3.out",
                         });
+
                         gsap.to(rightDoor, {
-                            x: `${slideAmount}%`,
-                            duration: 0.3,
-                            ease: "power2.out",
-                            overwrite: true
+                            x: 122,
+                            duration: 1,
+                            delay: index * 0.1,
+                            ease: "power3.out",
+                        });
+                    } else {
+                        gsap.to([leftDoor, rightDoor], {
+                            x: 0,
+                            duration: 0.6,
+                            ease: "power2.inOut",
                         });
                     }
                 });
             };
 
-            // Update doors on every frame
             gsap.ticker.add(updateDoors);
 
             return () => {
-                marqueeAnim.kill();
                 gsap.ticker.remove(updateDoors);
+                doorState.clear();
             };
         }, containerRef);
 
         return () => ctx.revert();
-    }, [isDesktop, speakers.length]);
+    }, [isDesktop, isActive]);
 
     // Mobile layout - simple scrollable cards
     if (!isDesktop) {
@@ -165,17 +163,15 @@ const Speakers = () => {
                     {speakers.map((speaker, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0 w-[280px] snap-center relative"
+                            className="shrink-0 w-70 snap-center relative"
                         >
                             <div className="relative overflow-hidden">
-                                {/* Subtracted frame - defines size */}
                                 <img
                                     src={subtracted}
                                     alt=""
                                     className="w-full h-auto select-none relative z-10 pointer-events-none"
                                 />
-                                
-                                {/* Speaker Image - positioned within the window opening */}
+
                                 <div className="absolute top-[5%] left-[7%] right-[7%] bottom-[36%] z-0 overflow-hidden">
                                     <img
                                         src={speaker.img}
@@ -187,7 +183,6 @@ const Speakers = () => {
                                     />
                                 </div>
 
-                                {/* Speaker Info - on the scroll area */}
                                 <div className="absolute bottom-[8%] left-0 w-full text-center z-40 pointer-events-none px-4">
                                     <p
                                         className="text-lg text-[#2d1b2d] font-bold"
@@ -205,7 +200,6 @@ const Speakers = () => {
         );
     }
 
-    // Desktop layout - Marquee with door animation
     return (
         <section
             id="speakers"
@@ -218,7 +212,10 @@ const Speakers = () => {
             }}
         >
             {/* Header */}
-            <div ref={headingRef} className="text-center mb-16 md:mb-24 relative z-10">
+            <div
+                ref={headingRef}
+                className="text-center mb-16 md:mb-24 relative z-10"
+            >
                 <h2
                     className="text-6xl md:text-8xl text-[#2d1b2d] drop-shadow-sm select-none"
                     style={{ fontFamily: "Akumaru, serif" }}
@@ -226,88 +223,85 @@ const Speakers = () => {
                     SPEAKERS
                 </h2>
             </div>
-
-            {/* Marquee Container */}
             <div
                 ref={marqueeRef}
-                className="w-full max-w-[1400px] mx-auto overflow-hidden relative z-10 px-4"
+                className="w-full max-w-350 mx-auto relative z-10 px-4 py-5"
                 style={{ perspective: "1000px" }}
             >
-                {/* Marquee Inner - moves left */}
-                <div
-                    ref={marqueeInnerRef}
-                    className="flex gap-8"
-                    style={{ willChange: "transform" }}
+                <Marquee
+                    direction="left"
+                    speed={60}
+                    pauseOnHover
+                    gradient={false}
+                    autoFill
+                    play={isActive}
                 >
-                    {duplicatedSpeakers.map((speaker, index) => (
-                        <div
-                            key={index}
-                            ref={addToCardsRef}
-                            className="flex-shrink-0 w-[300px] relative cursor-pointer"
-                        >
-                            <div className="relative overflow-hidden">
-                                {/* Subtracted frame - defines size and provides the frame overlay */}
-                                <img
-                                    src={subtracted}
-                                    alt=""
-                                    className="w-full h-auto select-none relative z-10 pointer-events-none"
-                                />
-                                
-                                {/* Speaker Image - positioned within the window opening */}
-                                <div className="absolute top-[5%] left-[7%] right-[7%] bottom-[36%] z-0 overflow-hidden">
+                    <div className="flex gap-8 pr-8">
+                        {duplicatedSpeakers.map((speaker, index) => (
+                            <div
+                                key={index}
+                                ref={addToCardsRef}
+                                className="shrink-0 w-75 relative cursor-pointer"
+                            >
+                                <div className="relative overflow-hidden">
                                     <img
-                                        src={speaker.img}
-                                        alt={speaker.name}
-                                        className="w-[95%] h-full object-cover object-top"
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).style.opacity = "0";
-                                        }}
-                                    />
-                                </div>
-
-                                {/* Door Left - slides left to reveal */}
-                                <div
-                                    className="door-left absolute inset-0 z-20 overflow-hidden h-70 w-60 pt-6 pr-30"
-                                    style={{ clipPath: "inset(0 50% 0 0)" }}
-                                >
-                                    <img
-                                        src={left}
+                                        src={subtracted}
                                         alt=""
-                                        className="w-full h-full object-cover select-none"
+                                        className="w-full h-auto select-none relative z-10 pointer-events-none"
                                     />
-                                </div>
 
-                                {/* Door Right - slides right to reveal */}
-                                <div
-                                    className="door-right absolute inset-0 z-20 overflow-hidden w-60 h-70 pl-30 pt-6"
-                                    style={{ clipPath: "inset(0 0 0 50%)" }}
-                                >
-                                    <img
-                                        src={right}
-                                        alt=""
-                                        className="w-full h-full object-cover select-none"
-                                    />
-                                </div>
+                                    <div className="absolute top-[5%] left-[7%] right-[7%] bottom-[36%] z-0 overflow-hidden">
+                                        <img
+                                            src={speaker.img}
+                                            alt={speaker.name}
+                                            className="w-[95%] h-full object-cover object-top"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).style.opacity = "0";
+                                            }}
+                                        />
+                                    </div>
 
-                                {/* Speaker Info - on the scroll area */}
-                                <div className="absolute bottom-[8%] left-0 w-full text-center z-40 pointer-events-none px-4">
-                                    <p
-                                        className="text-xl text-[#2d1b2d] font-bold drop-shadow-sm"
-                                        style={{ fontFamily: "Akumaru, serif" }}
+                                    <div
+                                        className="door-left absolute inset-0 z-20 overflow-hidden h-70 w-60 pt-6 pr-30 left-7 top-0.5"
+                                        style={{ clipPath: "inset(0 50% 0 0)" }}
                                     >
-                                        {speaker.name}
-                                    </p>
-                                    <p className="text-sm text-[#4a3a4a] mt-1">{speaker.title}</p>
+                                        <img
+                                            src={left}
+                                            alt=""
+                                            className="w-full h-full object-cover select-none"
+                                        />
+                                    </div>
+
+                                    <div
+                                        className="door-right absolute inset-0 z-20 overflow-hidden w-60 h-70 pl-30 pt-6 left-7 top-0.5"
+                                        style={{ clipPath: "inset(0 0 0 50%)" }}
+                                    >
+                                        <img
+                                            src={right}
+                                            alt=""
+                                            className="w-full h-full object-cover select-none"
+                                        />
+                                    </div>
+
+                                    <div className="absolute bottom-[25%] left-0 w-full text-center z-40 pointer-events-none px-4">
+                                        <p
+                                            className="text-3xl text-[#2d1b2d] font-bold drop-shadow-sm"
+                                            style={{ fontFamily: "Akumaru, serif" }}
+                                        >
+                                            {speaker.name}
+                                        </p>
+                                        <p className="text-sm text-[#4a3a4a] mt-5">
+                                            {speaker.title}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Marquee>
             </div>
-
-            {/* Gradient overlays for smooth edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#f5e6d3] to-transparent z-20 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#f5e6d3] to-transparent z-20 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-[#f5e6d3] to-transparent z-20 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-[#f5e6d3] to-transparent z-20 pointer-events-none" />
         </section>
     );
 };
