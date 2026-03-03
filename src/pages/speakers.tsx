@@ -22,7 +22,6 @@ const Speakers = () => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
     const speakers: Speaker[] = speakersData.allSpeakers;
-    // Duplicate speakers for seamless loop
     const duplicatedSpeakers = [...speakers, ...speakers, ...speakers];
 
     const addToCardsRef = (el: HTMLDivElement | null) => {
@@ -70,7 +69,8 @@ const Speakers = () => {
                 repeat: -1,
             });
 
-            // Door animation based on position
+            const doorStates = new Map<HTMLElement, number>(); // Track current target for each door
+            
             const updateDoors = () => {
                 if (!marqueeRef.current) return;
                 
@@ -78,7 +78,7 @@ const Speakers = () => {
                 const visibleLeft = marqueeRect.left;
                 const visibleRight = marqueeRect.right;
                 const visibleWidth = visibleRight - visibleLeft;
-                const edgeZone = visibleWidth * 0.25; // 25% edge zone for door animation
+                const edgeZone = visibleWidth * 0.3; // 30% edge zone for door animation
 
                 speakerCardsRef.current.forEach((card) => {
                     if (!card) return;
@@ -102,10 +102,28 @@ const Speakers = () => {
                         openPercent = Math.max(0, (cardCenter - visibleLeft) / edgeZone);
                     }
 
-                    // Apply door sliding - left door slides left, right door slides right
-                    const slideAmount = 25 * openPercent; // Max 45% slide to keep slight gate visible
-                    gsap.set(leftDoor, { x: `-${slideAmount}%` });
-                    gsap.set(rightDoor, { x: `${slideAmount}%` });
+                    // Apply easing curve for smoother motion
+                    const easedPercent = gsap.parseEase("power2.out")(openPercent);
+                    const slideAmount = 45 * easedPercent; // Max 45% slide
+                    
+                    const currentTarget = doorStates.get(leftDoor) ?? -1;
+                    if (Math.abs(currentTarget - slideAmount) > 0.5) {
+                        doorStates.set(leftDoor, slideAmount);
+                        
+                        // Smooth tween to target position
+                        gsap.to(leftDoor, {
+                            x: `-${slideAmount}%`,
+                            duration: 0.3,
+                            ease: "power2.out",
+                            overwrite: true
+                        });
+                        gsap.to(rightDoor, {
+                            x: `${slideAmount}%`,
+                            duration: 0.3,
+                            ease: "power2.out",
+                            overwrite: true
+                        });
+                    }
                 });
             };
 
