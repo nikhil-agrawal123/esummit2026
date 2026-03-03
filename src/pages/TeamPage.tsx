@@ -15,8 +15,8 @@ import bgRight from "../assets/team/right-bg.png";
 import toriGate from "../assets/team/tori-gate.png";
 
 // Import your new character transparent PNGs
-import u1 from "../assets/team/u1.png";
-import u2 from "../assets/team/u2.png";
+// import u1 from "../assets/team/u1.png";
+// import u2 from "../assets/team/u2.png";
 import p1 from "../assets/team/members/1.png";
 import p2 from "../assets/team/members/2.png";
 import p3 from "../assets/team/members/3.png";
