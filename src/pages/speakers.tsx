@@ -92,7 +92,7 @@ const Speakers = () => {
                     );
 
                     const visibilityRatio = visibleWidth / cardRect.width;
-                    const isVisible = visibilityRatio > 0.5;
+                    const isVisible = visibilityRatio > 0.75;
 
                     const currentlyOpen = doorState.get(card) ?? false;
 
