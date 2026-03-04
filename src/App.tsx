@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { LenisProvider } from "./contexts/LenisContext";
+
 import Navbar from "./components/Navbar/navbar";
 import Petals from "./components/Petals/petals";
 import Hero from "./pages/hero";
@@ -14,6 +15,8 @@ import Zonals from "./pages/zonals";
 import AllEvents from "./pages/allEvents";
 import Footer from "./pages/footer";
 import TeamPage from "./pages/TeamPage";
+import Loader from "./pages/loader";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
@@ -35,32 +38,48 @@ function HomePage() {
 }
 
 function App() {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (loading) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [loading]);
+
     return (
-        <BrowserRouter>
-            <LenisProvider>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route
-                        path="/all-events"
-                        element={
-                            <>
-                                <AllEvents />
-                                <Petals count={50} />
-                            </>
-                        }
-                    />
-                    <Route
-                        path="/team"
-                        element={
-                            <>
-                                <TeamPage />
-                                <Petals count={50} />
-                            </>
-                        }
-                    />
-                </Routes>
-            </LenisProvider>
-        </BrowserRouter>
+        <>
+            {loading && <Loader onFinish={() => setLoading(false)} />}
+
+            <BrowserRouter>
+                <LenisProvider>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+
+                        <Route
+                            path="/all-events"
+                            element={
+                                <>
+                                    <AllEvents />
+                                    <Petals count={50} />
+                                </>
+                            }
+                        />
+
+                        <Route
+                            path="/team"
+                            element={
+                                <>
+                                    <TeamPage />
+                                    <Petals count={50} />
+                                </>
+                            }
+                        />
+                    </Routes>
+                </LenisProvider>
+            </BrowserRouter>
+        </>
     );
 }
 
