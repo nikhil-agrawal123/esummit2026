@@ -1,8 +1,8 @@
 .navbar {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
+    right: -10px;
+    width: 100vw;
     height: 600px;
     z-index: 50;
     transform-origin: 100% 0%;

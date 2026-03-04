@@ -15,7 +15,6 @@ import "./navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Desktop lantern items (5 lanterns)
 const desktopNavItems = [
     { label: "ABOUT", id: "about" },
     { label: "ZONALS", id: "zonals" },
@@ -229,7 +228,6 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                 duration: 1.6,
                 rotation: -25,
                 scale: 0.75,
-                opacity: 0,
                 ease: "power2.in",
             }, "<")
 

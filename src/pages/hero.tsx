@@ -3,6 +3,8 @@ import passBrushstroke from "../assets/passBrushstroke.webp";
 import { forwardRef, useEffect, useRef } from "react";
 import gsap from "gsap";
 import bg from "../assets/about_background.png";
+import mobile_26 from "../assets/26_mobile.svg";
+import mobile_esummit from "../assets/Esummit_mobile.svg";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/hero.css";
 
@@ -42,39 +44,18 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <>
       <section ref={ref} className="relative min-h-screen w-full overflow-hidden">
-        {/* Background layer */}
         <div ref={bgRef} className="hero-bg-layer" style={{ backgroundImage: "url('/bg-layer.webp')" }} />
-        
-        {/* Hut layer */}
         <div ref={hutRef} className="hero-hut-layer" style={{ backgroundImage: "url('/hut-layer.webp')" }}/>
-        
-        {/* Rocks layer */}
         <div ref={rocksRef} className="hero-rocks-layer" style={{ backgroundImage: "url('/rocks-layer.webp')" }}/>
-        
-        {/* Transition layer */}
         <div ref={transitionRef} className="absolute left-0 right-0 -bottom-60 h-60 bg-no-repeat bg-center pointer-events-none will-change-transform z-30" style={{ backgroundImage: `url(${bg})` }}/>
         
-        {/* Mobile Layout */}
         {windowWidth < 768 && (
-          <div className="hero-mobile-layout">
-            {/* Vertical ESUMMIT text on left */}
-            <div className="hero-esummit-container">
-              {"ESUMMIT".split("").map((letter, i) => (
-                <span key={i} className="hero-esummit-letter">
-                  {letter}
-                </span>
-              ))}
-            </div>
-            
-            {/* 26 on right side */}
-            <div className="hero-26-container">
-              <span className="hero-26-digit">2</span>
-              <span className="hero-26-digit hero-26-digit-bottom">6</span>
-            </div>
+          <div className="hero-mobile-layout flex justify-around items-center">
+            <img src={mobile_esummit} alt="ESUMMIT" className="self-start my-20!" />
+            <img src={mobile_26} alt="26" className="self-end my-60!" />
           </div>
         )}
         
-        {/* Mobile Get Your Pass button */}
         {windowWidth < 768 && (
           <div className="hero-mobile-pass-container">
             <div className="hero-mobile-pass-wrapper">
@@ -86,7 +67,6 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         )}
         
-        {/* Desktop content */}
         {windowWidth >= 768 && (
           <div ref={contentRef} className="hero-desktop-content">
             <div className="flex items-center justify-center flex-col">
