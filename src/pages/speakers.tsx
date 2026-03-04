@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import eventsBg from "../assets/events/events-bg.png";
+import eventsBg from "../assets/events/events-bg.webp";
 import speakersData from "../data/speakers.json";
-import left from "../assets/events/window-left-panel.png";
-import right from "../assets/events/window-right-panel.png";
-import subtracted from "../assets/events/window-subtract.png";
+import left from "../assets/events/window-left-panel.webp";
+import right from "../assets/events/window-right-panel.webp";
+import subtracted from "../assets/events/window-subtract.webp";
 import Marquee from "react-fast-marquee";
 
 interface Speaker {
@@ -205,7 +205,7 @@ const Speakers = () => {
             ref={containerRef}
             className="min-h-screen w-full flex flex-col items-center justify-center py-24 relative overflow-hidden"
             style={{
-                backgroundImage: `url(/background.png)`,
+                backgroundImage: `url(/background.webp)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}

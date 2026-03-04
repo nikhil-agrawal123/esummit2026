@@ -16,69 +16,69 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Replace these with your actual E-Summit assets
 
-import bgMain from "../assets/team/background.png";
+import bgMain from "../assets/team/background.webp";
 
-import bgLeft from "../assets/team/left-bg.png";
+import bgLeft from "../assets/team/left-bg.webp";
 
-import bgRight from "../assets/team/right-bg.png";
+import bgRight from "../assets/team/right-bg.webp";
 
-import toriGate from "../assets/team/tori-gate.png";
+import toriGate from "../assets/team/tori-gate.webp";
 
 // Import your new character transparent PNGs
 
-// import u1 from "../assets/team/u1.png";
+// import u1 from "../assets/team/u1.webp";
 
-// import u2 from "../assets/team/u2.png";
+// import u2 from "../assets/team/u2.webp";
 
-import p1 from "../assets/team/members/1.png";
+import p1 from "../assets/team/members/1.webp";
 
-import p2 from "../assets/team/members/2.png";
+import p2 from "../assets/team/members/2.webp";
 
-import p3 from "../assets/team/members/3.png";
+import p3 from "../assets/team/members/3.webp";
 
-import p4 from "../assets/team/members/4.png";
+import p4 from "../assets/team/members/4.webp";
 
-import p5 from "../assets/team/members/5.png";
+import p5 from "../assets/team/members/5.webp";
 
-import p6 from "../assets/team/members/6.png";
+import p6 from "../assets/team/members/6.webp";
 
-import p7 from "../assets/team/members/7.png";
+import p7 from "../assets/team/members/7.webp";
 
-import p8 from "../assets/team/members/8.png";
+import p8 from "../assets/team/members/8.webp";
 
-import p9 from "../assets/team/members/9.png";
+import p9 from "../assets/team/members/9.webp";
 
-import p10 from "../assets/team/members/10.png";
+import p10 from "../assets/team/members/10.webp";
 
-import p11 from "../assets/team/members/11.png";
+import p11 from "../assets/team/members/11.webp";
 
-import p12 from "../assets/team/members/12.png";
+import p12 from "../assets/team/members/12.webp";
 
-import p13 from "../assets/team/members/13.png";
+import p13 from "../assets/team/members/13.webp";
 
-import p14 from "../assets/team/members/14.png";
+import p14 from "../assets/team/members/14.webp";
 
-import p15 from "../assets/team/members/15.png";
+import p15 from "../assets/team/members/15.webp";
 
-import p16 from "../assets/team/members/16.png";
+import p16 from "../assets/team/members/16.webp";
 
-import p17 from "../assets/team/members/17.png";
+import p17 from "../assets/team/members/17.webp";
 
-import p18 from "../assets/team/members/18.png";
+import p18 from "../assets/team/members/18.webp";
 
-import p19 from "../assets/team/members/19.png";
+import p19 from "../assets/team/members/19.webp";
 
-import p20 from "../assets/team/members/20.png";
+import p20 from "../assets/team/members/20.webp";
 
-import p21 from "../assets/team/members/21.png";
+import p21 from "../assets/team/members/21.webp";
 
-import p22 from "../assets/team/members/22.png";
+import p22 from "../assets/team/members/22.webp";
 
-import p23 from "../assets/team/members/23.png";
+import p23 from "../assets/team/members/23.webp";
 
-import p24 from "../assets/team/members/24.png";
+import p24 from "../assets/team/members/24.webp";
 
-import p25 from "../assets/team/members/25.png";
+import p25 from "../assets/team/members/25.webp";
 
 // Alternating images applied directly to the data array
 

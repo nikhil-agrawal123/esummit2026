@@ -1,16 +1,16 @@
-import unstop from '../assets/unstopPanel.png'
-import ease from '../assets/easeMyTripPanel.png'
-// import google from '../assets/googlePanel.png'
-// import stripe from '../assets/stripePanel.png'
-// import sequioa from '../assets/sequioaPanel.png'
-// import scroll from '../assets/scroll2.png'
-// import scrollBg from '../assets/scrollBg.png'
+import unstop from '../assets/unstopPanel.webp'
+import ease from '../assets/easeMyTripPanel.webp'
+// import google from '../assets/googlePanel.webp'
+// import stripe from '../assets/stripePanel.webp'
+// import sequioa from '../assets/sequioaPanel.webp'
+// import scroll from '../assets/scroll2.webp'
+// import scrollBg from '../assets/scrollBg.webp'
 // import Marquee from "react-fast-marquee";
 
 function Sponsors() {
   return (
     <section id="sponsors" className="relative h-screen w-full">
-      <img src="/bg.png"  alt="Background" className="absolute inset-0 h-full w-full object-cover"/>
+      <img src="/bg.webp"  alt="Background" className="absolute inset-0 h-full w-full object-cover"/>
       <div className="relative flex justify-center items-start w-full h-full pt-12! pr-50!">
         <h2 className="text-8xl text-[#371B2E] font-[Akumaru]">
           Sponsors

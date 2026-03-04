@@ -8,10 +8,10 @@ import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import bgMain from "../assets/team/background.png";
-import bgLeft from "../assets/team/left-bg.png";
-import bgRight from "../assets/team/right-bg.png";
-import toriGate from "../assets/team/tori-gate.png";
+import bgMain from "../assets/team/background.webp";
+import bgLeft from "../assets/team/left-bg.webp";
+import bgRight from "../assets/team/right-bg.webp";
+import toriGate from "../assets/team/tori-gate.webp";
 import teamData from "../data/teamData.json";
 
 const TeamPage = () => {

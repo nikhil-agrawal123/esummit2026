@@ -1,6 +1,6 @@
 import React from "react";
-import bg from "../assets/zonals_background.png";
-import timeline from "../assets/zonals_timeline.png"; 
+import bg from "../assets/zonals_background.webp";
+import timeline from "../assets/zonals_timeline.webp"; 
 
 const Zonals: React.FC = () => {
   return (

@@ -2,7 +2,7 @@ import twentySix from "../assets/heroTitle.svg";
 import passBrushstroke from "../assets/passBrushstroke.webp";
 import { forwardRef, useEffect, useRef } from "react";
 import gsap from "gsap";
-import bg from "../assets/about_background.png";
+import bg from "../assets/about_background.webp";
 import mobile_26 from "../assets/26_mobile.svg";
 import mobile_esummit from "../assets/Esummit_mobile.svg";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

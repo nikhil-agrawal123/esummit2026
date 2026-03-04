@@ -1,7 +1,7 @@
 import React from "react";
-import bg from "../assets/about_background.png";
-import building from "../assets/about_IIITD_asset.png";
-import logo from "../assets/about_logo.png";
+import bg from "../assets/about_background.webp";
+import building from "../assets/about_IIITD_asset.webp";
+import logo from "../assets/about_logo.webp";
 import "../styles/about.css";
 
 const About: React.FC = () => {

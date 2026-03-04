@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import branch from "../../assets/branch.webp";
 import gLantern from "../../assets/lantern.webp";
 import flower from "../../assets/flower.webp";
-import bird from "../../assets/birdie.png";
-import birdUp from "../../assets/birdie_fly_up.png";
-import birdDown from "../../assets/birdie_fly_down.png";
+import bird from "../../assets/birdie.webp";
+import birdUp from "../../assets/birdie_fly_up.webp";
+import birdDown from "../../assets/birdie_fly_down.webp";
 import passBrushstroke from "../../assets/passBrushstroke.webp";
 
 import "./navbar.css";
@@ -279,7 +279,7 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                             className={`lantern-wrapper l${index + 1}`}
                         >
                             <div className={`lantern-chain c${index + 1}`} />
-                            <img className="lantern" src={gLantern} alt={item.label} />
+                            <img className="lantern" alt={`lantern ${item.label}`} src={gLantern} />
                             <span className="lantern-label">{item.label}</span>
                             <img src={flower} alt="flower" className="flower" />
                         </Link>
@@ -299,7 +299,7 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                     className="mobile-menu-lantern lantern-wrapper"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
-                    <img src="/menu.png" alt="Menu" className="lantern"/>
+                    <img src="/menu.webp" alt="Menu" className="lantern"/>
                 </div>
             </div>
 

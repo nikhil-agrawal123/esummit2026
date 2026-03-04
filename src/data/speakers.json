@@ -4,19 +4,19 @@
             "name": "Anshuman Tripathy",
             "title": "Security Advisory Board",
             "company": "National Security Council",
-            "img" : "/speaker2.png"
+            "img" : "/speaker2.webp"
         },
         {
             "name": "Vijendra Chauhan",
             "title": "UPSC Educator",
             "company": "Drishti IAS",
-            "img" : "/speaker1.png"
+            "img" : "/speaker1.webp"
         },
         {
             "name": "Anuj Sahani",
             "title": "Head of Incubation ",
             "company": "Krafton",
-            "img" : "/speaker3.png"
+            "img" : "/speaker3.webp"
         }
     ]
 }

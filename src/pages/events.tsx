@@ -3,8 +3,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
 
-import eventsBg from "../assets/events/events-bg.png";
-import buttonTexture from "../assets/events/back.png";
+import eventsBg from "../assets/events/events-bg.webp";
+import buttonTexture from "../assets/events/back.webp";
 import EventScroll from "../components/EventScroll/EventScroll";
 import eventsData from "../data/events.json";
 

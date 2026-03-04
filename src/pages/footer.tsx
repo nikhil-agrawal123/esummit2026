@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { LenisContext } from "../contexts/LenisContext";
+import footerPhoto from "../assets/footer.jpeg"
 
 const Footer = () => {
     const { scrollTo } = useContext(LenisContext);
@@ -30,7 +31,7 @@ const Footer = () => {
                             <div className="relative">
                                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-br from-[#e488b0] to-[#7b3f00] opacity-40" />
                                 <img
-                                    src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=80&h=80&fit=crop"
+                                    src={footerPhoto}
                                     alt="E-Summit 2026 Logo"
                                     className="relative w-12 h-12 rounded-lg object-cover border-2 border-[#7b3f00]/60"
                                 />
@@ -101,7 +102,8 @@ const Footer = () => {
                         <h4 className="text-[#e488b0] text-2xl tracking-widest" style={{ fontFamily: "Akumaru" }}>
                             LOCATE US
                         </h4>
-                        <iframe 
+                        <iframe
+                            title="IIITD on Google Maps" 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.7958923239635!2d77.2705959121087!3d28.54585407561092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3e564daac1d%3A0x2c582e340e7bc556!2sIndraprastha%20Institute%20of%20Information%20Technology%20Delhi!5e0!3m2!1sen!2sin!4v1772466534183!5m2!1sen!2sin" 
                             width="100%" 
                             height="150" 

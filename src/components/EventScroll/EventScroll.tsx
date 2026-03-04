@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { Calendar, MapPin } from "lucide-react";
 
-import handleTop from "../../assets/events/scroll-handle-top.png";
-import handleBottom from "../../assets/events/scroll-handle-bottom.png";
-import paperTexture from "../../assets/events/scroll-paper.png";
-import buttonTexture from "../../assets/events/back.png";
+import handleTop from "../../assets/events/scroll-handle-top.webp";
+import handleBottom from "../../assets/events/scroll-handle-bottom.webp";
+import paperTexture from "../../assets/events/scroll-paper.webp";
+import buttonTexture from "../../assets/events/back.webp";
 
 export interface EventData {
     id: number;
