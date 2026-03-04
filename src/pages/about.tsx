@@ -2,9 +2,7 @@ import React from "react";
 import bg from "../assets/about_background.png";
 import building from "../assets/about_IIITD_asset.png";
 import logo from "../assets/about_logo.png";
-
-const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
-
+import "../styles/about.css";
 
 const About: React.FC = () => {
   return (
@@ -43,15 +41,12 @@ const About: React.FC = () => {
 
       {/* TOP LEFT LOGO */}
 
-      {windowWidth >= 768 && (
         <img
           src={logo}
           alt="E-Summit logo"
-          className="absolute top-10 left-27.5 w-50 z-30 object-contain select-none"
+          className="logo absolute top-10 left-27.5 w-50 z-30 object-contain select-none"
           draggable={false}
         />
-      )
-      }
 
       {/* BUILDING – MID LAYER */}
       <img
