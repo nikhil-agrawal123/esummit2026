@@ -1,0 +1,179 @@
+{
+    "team": [
+        {
+        "id": "01",
+        "name": "Praddume Attri",
+        "role": "Convenors",
+        "jp": "フロントエンド",
+        "image": "/members/20.png"
+    },
+    {
+        "id": "02",
+        "name": "Aryan Raj",
+        "role": "Convenors",
+        "jp": "デザイナー",
+        "image": "/members/25.png"
+    },
+    {
+        "id": "03",
+        "name": "Yuvraj Verma",
+        "role": "General Secretary",
+        "jp": "バックエンド",
+        "image": "/members/22.png"
+    },
+    {
+        "id": "04",
+        "name": "Vikas Meena",
+        "role": "Treasurer",
+        "jp": "ディレクター",
+        "image": "/members/8.png"
+    },
+    {
+        "id": "05",
+        "name": "Nikhil",
+        "role": "Curations & Web-Dev OC",
+        "jp": "マーケティング",
+        "image": "/members/2.png"
+    },
+    {
+        "id": "06",
+        "name": "Lakshay",
+        "role": "Curations OC",
+        "jp": "マーケティング",
+        "image": "/members/5.png"
+    },
+    {
+        "id": "07",
+        "name": "Navya",
+        "role": "Curations OC",
+        "jp": "マーケティング",
+        "image": "/members/9.png"
+    },
+    {
+        "id": "08",
+        "name": "Aatiq",
+        "role": "Design OCs",
+        "jp": "オペレーション",
+        "image": "/members/11.png"
+    },
+    {
+        "id": "09",
+        "name": "Sumeet",
+        "role": "Design OCs",
+        "jp": "オペレーション",
+        "image": "/members/1.png"
+    },
+    {
+        "id": "10",
+        "name": "Areeb",
+        "role": "Webdev OC",
+        "jp": "マーケティング",
+        "image": "/members/7.png"
+    },
+    {
+        "id": "11",
+        "name": "Farhaan",
+        "role": "Design OCs",
+        "jp": "オペレーション",
+        "image": "/members/21.png"  
+    },
+    {
+        "id": "12",
+        "name": "Garu Jain",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/14.png"
+    },
+    {
+        "id": "13",
+        "name": "Prerak Tanwar",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/16.png"
+    },
+    {
+        "id": "14",
+        "name": "Saksham",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/17.png"
+    },
+    {
+        "id": "15",
+        "name": "Parth",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/3.png"
+    },
+    {
+        "id": "16",
+        "name": "Sumit",
+        "role": "Operations OC",
+        "jp": "マーケティング",
+        "image": "/members/4.png"
+    },
+    {
+        "id": "17",
+        "name": "Abhimanyu",
+        "role": "Operations OC",
+        "jp": "マーケティング",
+        "image": "/members/12.png"
+    },
+    {
+        "id": "18",
+        "name": "Adwait",
+        "role": "PR And Outreach",
+        "jp": "マーケティング",
+        "image": "/members/24.png"
+    },
+    {
+        "id": "19",
+        "name": "Yashaswi",
+        "role": "PR And Outreach",
+        "jp": "マーケティング",
+        "image": "/members/15.png"
+    },
+    {
+        "id": "20",
+        "name": "Kirat",
+        "role": "PR And Outreach",
+        "jp": "マーケティング",
+        "image": "/members/23.png"
+    },
+    {
+        "id": "21",
+        "name": "Shubhi",
+        "role": "Ambience OC",
+        "jp": "マーケティング",
+        "image": "/members/19.png"
+    },
+    {
+        "id": "22",
+        "name": "Pranshu",
+        "role": "Ambience OC",
+        "jp": "マーケティング",
+        "image": "/members/13.png"
+    },
+    {
+        "id": "23",
+        "name": "Anurag",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/18.png"
+    },
+    {
+        "id": "24",
+        "name": "Pratham",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/6.png"
+    },
+    {
+        "id": "25",
+        "name": "Rahul",
+        "role": "Spons Core",
+        "jp": "マーケティング",
+        "image": "/members/20.png"
+    }
+    ]
+}
