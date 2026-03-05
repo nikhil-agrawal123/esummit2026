@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-ro
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { LenisProvider } from "./contexts/LenisContext";
+import { Analytics } from "@vercel/analytics/react"
 
 import Navbar from "./components/Navbar/navbar";
 import Petals from "./components/Petals/petals";
@@ -278,6 +279,7 @@ function App() {
 
     return (
         <>
+            <Analytics />
             {!loaderDone && <Loader onFinish={handleLoaderFinish} />}
 
             {pageMounted && (
