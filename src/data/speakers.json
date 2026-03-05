@@ -17,6 +17,36 @@
             "title": "Head of Incubation ",
             "company": "Krafton",
             "img" : "/speaker3.webp"
+        },
+        {
+            "name": "Anjali Malhotra",
+            "title": "Founder",
+            "company": "C-Xel",
+            "img" : "/speaker4.webp"
+        },
+        {
+            "name": "Shamshad Alam",
+            "title": "Founder",
+            "company": "Edunachal",
+            "img" : "/speaker5.webp"
+        },
+        {
+            "name": "Tanmay Arora",
+            "title": "Vice President",
+            "company": "KRESERA",
+            "img" : "/speaker6.webp"
+        },
+        {
+            "name": "Chandan Singh",
+            "title": "Co-Founder",
+            "company": "ADDA247",
+            "img" : "/speaker7.webp"
+        },
+        {
+            "name": "Dipali Kulshreshtha",
+            "title": "Principal Engineer",
+            "company": "AWS",
+            "img" : "/speaker8.webp"
         }
     ]
 }
