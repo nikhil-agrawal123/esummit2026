@@ -78,13 +78,8 @@ function DoorController() {
     const rightDoorRef = useRef<HTMLImageElement>(null);
 
     const startTransition = async () => {
-
-        /* small cinematic delay so bird starts flying first */
         await new Promise((r) => setTimeout(r, 200));
-
         setDoorsVisible(true);
-
-        /* wait until door DOM exists before animating */
         await new Promise<void>((resolve) => {
             const waitForDoors = () => {
                 if (!leftDoorRef.current || !rightDoorRef.current) {
@@ -216,21 +211,44 @@ function App() {
             "/assets/team/tori-gate.webp",
             "/assets/zonals_background.webp",
             "/assets/zonals_timeline.webp",
+
+            "/members/background.webp",
+            "/members/background2.webp",
+            "/members/bg-layer.webp",
+            "/members/bg.webp",
+            "/members/hut-layer.webp",
+            "/members/menu.webp",
+            "/members/rocks-layer.webp",
+            "/members/speaker1.webp",
+            "/members/speaker2.webp",
+            "/members/speaker3.webp",
+
+            ...Array.from({ length: 25 }, (_, i) => `/members/${i + 1}.webp`)
         ];
 
-        Promise.all(
-            assets.map(
-                (src) =>
-                    new Promise((resolve) => {
-                        const img = new Image();
-                        img.src = src;
-                        img.onload = resolve;
-                        img.onerror = resolve;
-                    })
-            )
-        ).then(() => {
+        const loadImage = (src: string) =>
+            new Promise<void>((resolve) => {
+                const img = new Image();
+                img.src = src;
+
+                if (img.decode) {
+                    img.decode().catch(() => { }).finally(() => resolve());
+                } else {
+                    img.onload = img.onerror = () => resolve();
+                }
+            });
+
+        const batchSize = 8;
+
+        const loadBatches = async () => {
+            for (let i = 0; i < assets.length; i += batchSize) {
+                const batch = assets.slice(i, i + batchSize);
+                await Promise.all(batch.map(loadImage));
+            }
             setAssetsReady(true);
-        });
+        };
+
+        loadBatches();
     }, []);
 
     useEffect(() => {

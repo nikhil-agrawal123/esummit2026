@@ -32,9 +32,9 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
         },
       })
         .to(bgRef.current, { y: 0, ease: "none" }, 0)
-        .to(hutRef.current, { y: -100, ease: "power3.out" }, 0)
-        .to(transitionRef.current, { y: -240, ease: "power4.out" }, 0)
-        .to(rocksRef.current, { y: -240, ease: "power4.out" }, 0)
+        .to(hutRef.current, { y: -50, ease: "power3.out" }, 0)
+        .to(transitionRef.current, { y: -150, ease: "power4.out" }, 0)
+        .to(rocksRef.current, { y: -150, ease: "power4.out" }, 0)
         .to(contentRef.current, { scale: 0, duration: 0.2 }, 0);
     });
 

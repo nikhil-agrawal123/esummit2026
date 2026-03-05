@@ -16,8 +16,8 @@ import teamData from "../data/teamData.json";
 
 const TeamPage = () => {
     const heroRef = useRef<HTMLDivElement>(null);
+    const gridRef = useRef<HTMLDivElement>(null);
 
-    // Initialize Lenis for premium smooth scrolling
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -49,7 +49,7 @@ const TeamPage = () => {
                 scrollTrigger: {
                     trigger: heroRef.current,
                     start: "top top",
-                    end: "+=250%",
+                    end: "+=100%",
                     pin: true,
                     scrub: 1,
                     pinSpacing: false,
@@ -57,33 +57,55 @@ const TeamPage = () => {
             });
 
             tl.to(".team-text", { scale: 2, opacity: 0, duration: 0.3 }, 0);
-            tl.to(
-                ".left-mountain",
-                { xPercent: -20, opacity: 0.8, duration: 0.6 },
-                0,
-            );
-            tl.to(
-                ".right-mountain",
-                { xPercent: 20, opacity: 0.8, duration: 0.6 },
-                0,
-            );
+
+            // tl.to(
+            //     ".left-mountain",
+            //     { xPercent: -20, opacity: 0.8 },
+            //     0,
+            // );
+
+            // tl.to(
+            //     ".right-mountain",
+            //     { xPercent: 20, opacity: 0.8 },
+            //     0,
+            // );
+
             tl.to(
                 ".tori-gate",
                 {
                     scale: 35,
                     transformOrigin: "50% 65%",
                     ease: "power2.inOut",
-                    duration: 1,
+                    duration: 0.7,
                 },
                 0,
             );
             tl.to(".tori-gate", { opacity: 0, duration: 0.1 }, 0.9);
+
+
+            gsap.set(gridRef.current, {
+                y: -1700,
+                scale: 0.25,
+            });
+
+            gsap.to(gridRef.current, {
+                scale: 1,
+                y: -250,
+                scrollTrigger: {
+                    trigger: gridRef.current,
+                    start: "top 95%",
+                    end: "bottom 90%",
+                    scrub: true,
+                    pinSpacing: "margin",
+                    pin: true,
+                },
+            });
         },
         { scope: heroRef },
     );
 
     return (
-        <div className="relative w-full min-h-screen bg-[#0a0a0a] overflow-x-hidden">
+        <section className="relative w-[100vw] min-h-screen bg-[#0a0a0a] overflow-x-hidden">
             {/* LAYER 0: Fixed Main Background */}
             <div
                 className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none"
@@ -96,23 +118,13 @@ const TeamPage = () => {
                 className="relative h-screen w-full z-20 pointer-events-none"
             >
                 <img
-                    src={bgLeft}
-                    alt="Left Mountain"
-                    className="left-mountain absolute bottom-0 left-0 w-auto max-w-[50vw] max-h-[50vh] object-contain object-bottom"
-                />
-                <img
-                    src={bgRight}
-                    alt="Right Mountain"
-                    className="right-mountain absolute bottom-0 right-0 w-auto max-w-[50vw] max-h-[50vh] object-contain object-bottom"
-                />
-                <img
                     src={toriGate}
                     alt="Tori Gate"
                     className="tori-gate absolute bottom-0 left-1/2 w-auto max-w-full max-h-[85vh] object-contain object-bottom"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <h2
-                        className="team-text text-4xl sm:text-5xl md:text-8xl text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] select-none tracking-widest text-center px-4"
+                        className="team-text text-2xl sm:text-4xl md:text-7xl text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] select-none tracking-widest text-center px-4"
                         style={{
                             fontFamily: "Akumaru, serif",
                             y: -50,
@@ -124,10 +136,24 @@ const TeamPage = () => {
                 </div>
             </section>
 
+            <img
+                src={bgLeft}
+                alt="Left Mountain"
+                className="fixed left-mountain top-96 left-0 z-9997 w-auto max-w-[50vw] max-h-[50vh] object-contain object-bottom"
+            />
+
+            <img
+                src={bgRight}
+                alt="Right Mountain"
+                className="fixed right-mountain top-96 -right-5 z-9997 w-auto max-w-[50vw] max-h-[50vh] object-contain object-bottom"
+            />
+
             {/* LAYER 2: The Scrollable Team Grid */}
-            <section className="relative z-10 w-full pt-[30vh] sm:pt-[40vh] md:pt-[45vh] pb-20 md:pb-40 px-4 sm:px-6 md:px-8 flex justify-center">
-                {/* Adjusted grid breakpoints for better responsiveness */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 lg:gap-x-12 gap-y-12 lg:gap-y-20 place-items-center w-full max-w-[1400px]">
+            <section className="relative z-10 w-full -my-96! px-4 sm:px-6 md:px-8 flex justify-center">
+                <div
+                    ref={gridRef}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-2 lg:gap-x-2 gap-y-12 lg:gap-y-20 place-items-center w-[80vw] scale-50 max-w-[1400px]"
+                >
                     {teamData.team.map((member) => (
                         <motion.div
                             key={member.id}
@@ -158,7 +184,6 @@ const TeamPage = () => {
                                 transition={{ duration: 0.5 }}
                             />
 
-                            {/* --- THE CHARACTER IMAGE --- */}
                             <motion.div
                                 className="absolute inset-x-0 bottom-0 top-10 z-10 flex justify-center items-end"
                                 variants={{
@@ -174,7 +199,6 @@ const TeamPage = () => {
                                 />
                             </motion.div>
 
-                            {/* --- FOREGROUND UI & TYPOGRAPHY --- */}
                             <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 flex flex-col">
                                 <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.3em] text-rose-600 mb-1 drop-shadow-sm">
                                     ROLE // {member.id}
@@ -225,10 +249,7 @@ const TeamPage = () => {
                                             href="#"
                                             className="w-8 h-8 sm:w-10 sm:h-10 bg-white/70 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 transition-all"
                                         >
-                                            <Icon
-                                                size={16}
-                                                className="sm:w-[18px] sm:h-[18px]"
-                                            />
+                                            <Icon size={16} className="sm:w-[18px] sm:h-[18px]" />
                                         </a>
                                     ),
                                 )}
@@ -247,9 +268,12 @@ const TeamPage = () => {
                             />
                         </motion.div>
                     ))}
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div key={`dummy-${i}`} className="w-full max-w-[320px] sm:max-w-[360px] aspect-[3/1] opacity-0 pointer-events-none" />
+                    ))}
                 </div>
             </section>
-        </div>
+        </section>
     );
 };
 

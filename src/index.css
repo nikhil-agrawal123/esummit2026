@@ -19,3 +19,6 @@ body {
     background-image: url("/background.webp");
 }
 
+img {
+  will-change: transform;
+}
