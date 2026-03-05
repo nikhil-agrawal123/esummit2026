@@ -9,7 +9,7 @@ import ease from '../assets/easeMyTripPanel.webp'
 
 function Sponsors() {
   return (
-    <section id="sponsors" className="relative h-screen w-full">
+    <section id="sponsors" className="relative min-h-screen w-full">
       <img src="/bg.webp"  alt="Background" className="absolute inset-0 h-full w-full object-cover"/>
       <div className="relative flex justify-center items-start w-full h-full pt-12! pr-50!">
         <h2 className="text-8xl text-[#371B2E] font-[Akumaru]">

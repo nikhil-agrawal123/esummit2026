@@ -230,7 +230,7 @@ const Speakers = () => {
                 <Marquee
                     direction="left"
                     speed={60}
-                    pauseOnHover
+                    pauseOnClick
                     gradient={false}
                     autoFill
                     play={isActive}

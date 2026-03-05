@@ -6,7 +6,7 @@ const Zonals: React.FC = () => {
   return (
     <section
       id="zonals"
-      className="w-full h-screen relative overflow-hidden -mt-60"
+      className="w-full min-h-screen relative overflow-hidden -mt-60"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",

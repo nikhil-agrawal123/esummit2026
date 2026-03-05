@@ -22,9 +22,10 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
         const lenisInstance = new Lenis({ lerp: 0.1 });
         lenisRef.current = lenisInstance;
 
+        lenisInstance.on("scroll", ScrollTrigger.update);
+
         const raf = (time: number) => {
             lenisInstance.raf(time);
-            ScrollTrigger.update();
             requestAnimationFrame(raf);
         };
 
@@ -36,12 +37,10 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
     }, []);
 
     const scrollTo = (target: string | HTMLElement | number) => {
-        if (lenisRef.current) {
-            lenisRef.current.scrollTo(target, {
-                duration: 1.5,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            });
-        }
+        lenisRef.current?.scrollTo(target, {
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
     };
 
     return (

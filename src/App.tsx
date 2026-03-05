@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { LenisProvider } from "./contexts/LenisContext";
@@ -17,68 +17,258 @@ import Footer from "./pages/footer";
 import TeamPage from "./pages/TeamPage";
 import Loader from "./pages/loader";
 
+import leftDoor from "./assets/leftLoaderPanel.png";
+import rightDoor from "./assets/rightLoaderPanel.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
-function HomePage() {
+function RouterContent({ startTransition }: { startTransition: () => void }) {
     const heroRef = useRef<HTMLDivElement | null>(null);
 
     return (
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <>
+                        <Navbar heroRef={heroRef} startTransition={startTransition} />
+                        <Hero ref={heroRef} />
+                        <About />
+                        <Zonals />
+                        <Events />
+                        <Speakers />
+                        <Sponsors />
+                        <Petals count={50} />
+                        <Footer />
+                    </>
+                }
+            />
+
+            <Route
+                path="/all-events"
+                element={
+                    <>
+                        <AllEvents />
+                        <Petals count={50} />
+                    </>
+                }
+            />
+
+            <Route
+                path="/team"
+                element={
+                    <>
+                        <TeamPage />
+                        <Petals count={50} />
+                    </>
+                }
+            />
+        </Routes>
+    );
+}
+
+function DoorController() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const [doorsVisible, setDoorsVisible] = useState(false);
+    const [waitingForNavigation, setWaitingForNavigation] = useState(false);
+
+    const leftDoorRef = useRef<HTMLImageElement>(null);
+    const rightDoorRef = useRef<HTMLImageElement>(null);
+
+    const startTransition = async () => {
+
+        /* small cinematic delay so bird starts flying first */
+        await new Promise((r) => setTimeout(r, 200));
+
+        setDoorsVisible(true);
+
+        /* wait until door DOM exists before animating */
+        await new Promise<void>((resolve) => {
+            const waitForDoors = () => {
+                if (!leftDoorRef.current || !rightDoorRef.current) {
+                    requestAnimationFrame(waitForDoors);
+                    return;
+                }
+
+                gsap.timeline({ onComplete: resolve })
+                    .to(leftDoorRef.current, {
+                        x: "0%",
+                        duration: 1.2,
+                        ease: "power2.inOut",
+                    })
+                    .to(
+                        rightDoorRef.current,
+                        {
+                            x: "0%",
+                            duration: 1.2,
+                            ease: "power2.inOut",
+                        },
+                        "<"
+                    );
+            };
+
+            waitForDoors();
+        });
+
+        setWaitingForNavigation(true);
+
+        navigate("/team");
+        window.scrollTo(0, 0);
+    };
+
+    /* open doors ONLY after route actually changes */
+    useEffect(() => {
+        if (!waitingForNavigation) return;
+
+        requestAnimationFrame(() => {
+            gsap.timeline({
+                onComplete: () => {
+                    setDoorsVisible(false);
+                    setWaitingForNavigation(false);
+                },
+            })
+                .to(leftDoorRef.current, {
+                    x: "-100%",
+                    duration: 1.2,
+                    ease: "power3.inOut",
+                })
+                .to(
+                    rightDoorRef.current,
+                    {
+                        x: "100%",
+                        duration: 1.2,
+                        ease: "power3.inOut",
+                    },
+                    "<"
+                );
+        });
+    }, [location.pathname]);
+
+    return (
         <>
-            <Navbar heroRef={heroRef} />
-            <Hero ref={heroRef} />
-            <About />
-            <Zonals />
-            <Events />
-            <Speakers />
-            <Sponsors />
-            <Petals count={50} />
-            <Footer />
+            {doorsVisible && (
+                <div className="fixed inset-0 z-[9999] pointer-events-none">
+                    <img
+                        ref={leftDoorRef}
+                        src={leftDoor}
+                        className="absolute top-0 left-0 h-full w-1/2 object-cover"
+                        style={{ transform: "translateX(-100%)" }}
+                    />
+
+                    <img
+                        ref={rightDoorRef}
+                        src={rightDoor}
+                        className="absolute top-0 right-0 h-full w-1/2 object-cover"
+                        style={{ transform: "translateX(100%)" }}
+                    />
+                </div>
+            )}
+
+            <RouterContent startTransition={startTransition} />
         </>
     );
 }
 
 function App() {
-    const [loading, setLoading] = useState(true);
+    const [loaderDone, setLoaderDone] = useState(false);
+    const [pageMounted, setPageMounted] = useState(false);
+    const [assetsReady, setAssetsReady] = useState(false);
 
     useEffect(() => {
-        if (loading) {
-            document.body.style.overflow = "hidden";
+        const t = setTimeout(() => {
+            setPageMounted(true);
+        }, 1000);
+
+        return () => clearTimeout(t);
+    }, []);
+
+    useEffect(() => {
+        const assets = [
+            "/assets/events/scroll-handle-top.webp",
+            "/assets/events/scroll-handle-bottom.webp",
+            "/assets/events/scroll-paper.webp",
+            "/assets/events/back.webp",
+            "/assets/branch.webp",
+            "/assets/lantern.webp",
+            "/assets/flower.webp",
+            "/assets/birdie.webp",
+            "/assets/birdie_fly_up.webp",
+            "/assets/birdie_fly_down.webp",
+            "/assets/passBrushstroke.webp",
+            "/assets/about_background.webp",
+            "/assets/about_IIITD_asset.webp",
+            "/assets/about_logo.webp",
+            "/assets/events/events-bg.webp",
+            "/assets/footer.jpeg",
+            "/assets/heroTitle.svg",
+            "/assets/26_mobile.svg",
+            "/assets/Esummit_mobile.svg",
+            "/assets/events/window-left-panel.webp",
+            "/assets/events/window-right-panel.webp",
+            "/assets/events/window-subtract.webp",
+            "/assets/unstopPanel.webp",
+            "/assets/easeMyTripPanel.webp",
+            "/assets/team/background.webp",
+            "/assets/team/left-bg.webp",
+            "/assets/team/right-bg.webp",
+            "/assets/team/tori-gate.webp",
+            "/assets/zonals_background.webp",
+            "/assets/zonals_timeline.webp",
+        ];
+
+        Promise.all(
+            assets.map(
+                (src) =>
+                    new Promise((resolve) => {
+                        const img = new Image();
+                        img.src = src;
+                        img.onload = resolve;
+                        img.onerror = resolve;
+                    })
+            )
+        ).then(() => {
+            setAssetsReady(true);
+        });
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = loaderDone ? "auto" : "hidden";
+    }, [loaderDone]);
+
+    const handleLoaderFinish = () => {
+        if (assetsReady) {
+            setLoaderDone(true);
         } else {
-            document.body.style.overflow = "auto";
+            const wait = setInterval(() => {
+                if (assetsReady) {
+                    setLoaderDone(true);
+                    clearInterval(wait);
+                }
+            }, 30);
         }
-    }, [loading]);
+    };
+
+    useEffect(() => {
+        if (pageMounted) {
+            requestAnimationFrame(() => {
+                ScrollTrigger.refresh();
+            });
+        }
+    }, [pageMounted]);
 
     return (
         <>
-            {loading && <Loader onFinish={() => setLoading(false)} />}
+            {!loaderDone && <Loader onFinish={handleLoaderFinish} />}
 
-            <BrowserRouter>
-                <LenisProvider>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-
-                        <Route
-                            path="/all-events"
-                            element={
-                                <>
-                                    <AllEvents />
-                                    <Petals count={50} />
-                                </>
-                            }
-                        />
-
-                        <Route
-                            path="/team"
-                            element={
-                                <>
-                                    <TeamPage />
-                                    <Petals count={50} />
-                                </>
-                            }
-                        />
-                    </Routes>
-                </LenisProvider>
-            </BrowserRouter>
+            {pageMounted && (
+                <BrowserRouter>
+                    <LenisProvider>
+                        <DoorController />
+                    </LenisProvider>
+                </BrowserRouter>
+            )}
         </>
     );
 }

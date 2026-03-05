@@ -2,7 +2,8 @@ import { useRef, useEffect, useContext, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { LenisContext } from "../../contexts/LenisContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import branch from "../../assets/branch.webp";
 import gLantern from "../../assets/lantern.webp";
 import flower from "../../assets/flower.webp";
@@ -23,7 +24,6 @@ const desktopNavItems = [
     { label: "SPONSORS", id: "sponsors" },
 ];
 
-// Mobile menu items (includes HOME and TEAM)
 const mobileNavItems = [
     { label: "HOME", id: "hero" },
     { label: "ABOUT", id: "about" },
@@ -36,30 +36,35 @@ const mobileNavItems = [
 
 interface NavbarProps {
     heroRef: React.RefObject<HTMLDivElement | null>;
+    startTransition: () => void;
 }
 
-const Navbar = ({ heroRef }: NavbarProps) => {
+const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
     const [birdFrame, setBirdFrame] = useState(bird);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navRef = useRef<HTMLDivElement>(null);
     const birdRef = useRef<HTMLImageElement>(null);
-    const navigate = useNavigate();
+
     const { scrollTo } = useContext(LenisContext);
 
     const defaultScale = 0.75;
     const scaleDownFactor = 0.4;
 
+    /* preload bird frames */
     useEffect(() => {
         const img1 = new Image();
         const img2 = new Image();
         img1.src = birdUp;
         img2.src = birdDown;
     }, []);
+
+    /* main GSAP + scroll logic */
     useEffect(() => {
         if (!heroRef.current || !navRef.current) return;
 
         const nav = navRef.current;
+
         let scaled = false;
         let hovered = false;
 
@@ -100,7 +105,8 @@ const Navbar = ({ heroRef }: NavbarProps) => {
             start: "top top",
             end: "bottom top",
             scrub: true,
-            onUpdate: (self) => {
+
+            onUpdate(self) {
                 const progress = self.progress;
 
                 const currentScaleX =
@@ -122,6 +128,7 @@ const Navbar = ({ heroRef }: NavbarProps) => {
 
                 if (!scaled && hovered) {
                     hovered = false;
+
                     gsap.to(nav, {
                         scaleX: defaultScale,
                         scaleY: defaultScale + 0.05,
@@ -181,6 +188,7 @@ const Navbar = ({ heroRef }: NavbarProps) => {
         let toggle = false;
         let lastTime = 0;
         let animationFrameId: number;
+
         const flapDelay = 220;
 
         const flapLoop = (time: number) => {
@@ -189,6 +197,7 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                 setBirdFrame(toggle ? birdUp : birdDown);
                 lastTime = time;
             }
+
             animationFrameId = requestAnimationFrame(flapLoop);
         };
 
@@ -204,10 +213,11 @@ const Navbar = ({ heroRef }: NavbarProps) => {
         const tl = gsap.timeline({
             onComplete: () => {
                 stopFlap();
-                navigate("/team");
             },
         });
-
+        setTimeout(() => {
+            startTransition();
+        }, 600);
         tl.to(birdEl, {
             rotation: -10,
             yoyo: true,
@@ -215,31 +225,37 @@ const Navbar = ({ heroRef }: NavbarProps) => {
             duration: 0.04,
             ease: "power1.inOut",
         })
-            .add(() => {
-                startFlap();
-            })
-            .to(birdEl, {
-                y: -40,
-                duration: 0.3,
-                ease: "power2.out",
-            })
-            .to(birdEl, {
-                x: -window.innerWidth * 1.5,
-                duration: 1.6,
-                rotation: -25,
-                scale: 0.75,
-                ease: "power2.in",
-            }, "<")
-
-            .to(birdEl, {
-                y: `-=${20 + Math.floor(Math.random() * 10)}`,
-                repeat: 4,
-                yoyo: true,
-                duration: 0.4,
-                ease: "sine.inOut",
-            }, "<");
+        .add(startFlap)
+        .to(birdEl, {
+            y: -40,
+            duration: 0.3,
+            ease: "power2.out",
+        })
+            .to(
+                birdEl,
+                {
+                    x: -window.innerWidth * 1.5,
+                    duration: 1.6,
+                    rotation: -25,
+                    scale: 0.75,
+                    ease: "power2.in",
+                },
+                "<"
+            )
+            .to(
+                birdEl,
+                {
+                    y: `-=${20 + Math.floor(Math.random() * 10)}`,
+                    repeat: 4,
+                    yoyo: true,
+                    duration: 0.4,
+                    ease: "sine.inOut",
+                },
+                "<"
+            );
     };
 
+    /* bird idle fidget */
     useEffect(() => {
         const interval = setInterval(() => {
             if (!birdRef.current) return;
@@ -247,24 +263,28 @@ const Navbar = ({ heroRef }: NavbarProps) => {
             const birdEl = birdRef.current;
 
             gsap.killTweensOf(birdEl, "rotation");
-            const fidgetTimeline = gsap.timeline()
-            fidgetTimeline.to(birdEl, {
-                rotation: 5,
-                yoyo: true,
-                repeat: 4,
-                duration: 0.08,
-                ease: "power1.inOut",
-            }).to(birdEl, {
-                rotation: -5,
-                yoyo: true,
-                repeat: 4,
-                duration: 0.08,
-                ease: "power1.inOut",
-            });
+
+            gsap
+                .timeline()
+                .to(birdEl, {
+                    rotation: 5,
+                    yoyo: true,
+                    repeat: 4,
+                    duration: 0.08,
+                    ease: "power1.inOut",
+                })
+                .to(birdEl, {
+                    rotation: -5,
+                    yoyo: true,
+                    repeat: 4,
+                    duration: 0.08,
+                    ease: "power1.inOut",
+                });
         }, 5640);
 
         return () => clearInterval(interval);
     }, []);
+
     return (
         <>
             <div ref={navRef} className="navbar">
@@ -279,8 +299,15 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                             className={`lantern-wrapper l${index + 1}`}
                         >
                             <div className={`lantern-chain c${index + 1}`} />
-                            <img className="lantern" alt={`lantern ${item.label}`} src={gLantern} />
+
+                            <img
+                                className="lantern"
+                                src={gLantern}
+                                alt={`lantern ${item.label}`}
+                            />
+
                             <span className="lantern-label">{item.label}</span>
+
                             <img src={flower} alt="flower" className="flower" />
                         </Link>
                     ))}
@@ -294,24 +321,32 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                     onClick={handleBirdClick}
                 />
 
-                {/* Mobile Menu Lantern - single lantern for mobile */}
-                <div 
+                <div
                     className="mobile-menu-lantern lantern-wrapper"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
-                    <img src="/menu.webp" alt="Menu" className="lantern"/>
+                    <img src="/menu.webp" alt="Menu" className="lantern" />
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay - outside navbar to avoid clipping */}
             {mobileMenuOpen && (
-                <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
-                    <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="mobile-menu-close" onClick={() => setMobileMenuOpen(false)}>
+                <div
+                    className="mobile-menu-overlay"
+                    onClick={() => setMobileMenuOpen(false)}
+                >
+                    <div
+                        className="mobile-menu-content"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="mobile-menu-close"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             ✕
                         </button>
+
                         <nav className="mobile-menu-nav">
-                            {mobileNavItems.map((item) => (
+                            {mobileNavItems.map((item) =>
                                 item.isRoute ? (
                                     <Link
                                         key={item.id}
@@ -319,8 +354,14 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                                         className="mobile-menu-item"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        <img src={passBrushstroke} alt="" className="mobile-menu-item-bg" />
-                                        <span className="mobile-menu-item-label">{item.label}</span>
+                                        <img
+                                            src={passBrushstroke}
+                                            alt=""
+                                            className="mobile-menu-item-bg"
+                                        />
+                                        <span className="mobile-menu-item-label">
+                                            {item.label}
+                                        </span>
                                     </Link>
                                 ) : (
                                     <a
@@ -332,11 +373,17 @@ const Navbar = ({ heroRef }: NavbarProps) => {
                                             setMobileMenuOpen(false);
                                         }}
                                     >
-                                        <img src={passBrushstroke} alt="" className="mobile-menu-item-bg" />
-                                        <span className="mobile-menu-item-label">{item.label}</span>
+                                        <img
+                                            src={passBrushstroke}
+                                            alt=""
+                                            className="mobile-menu-item-bg"
+                                        />
+                                        <span className="mobile-menu-item-label">
+                                            {item.label}
+                                        </span>
                                     </a>
                                 )
-                            ))}
+                            )}
                         </nav>
                     </div>
                 </div>
