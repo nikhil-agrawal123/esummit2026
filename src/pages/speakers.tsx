@@ -246,20 +246,20 @@ const Speakers = () => {
                 </div>
 
                 {/* Smaller cards marquee */}
-                <div className="w-full overflow-hidden">
+                <div className="w-full overflow-hidden py-4">
                     <Marquee
                         direction="left"
                         speed={20}
                         gradient={false}
                         pauseOnClick
                     >
-                        <div className="flex gap-3 px-2">
+                        <div className="flex gap-3 px-2 py-2">
                             {speakers.map((speaker, index) => (
                                 <div
                                     key={index}
                                     className={`w-[70px] relative cursor-pointer transition-all duration-500 ${
                                         index === featuredIndex 
-                                            ? 'scale-125 opacity-100 -translate-y-2 z-10' 
+                                            ? 'scale-110 opacity-100 -translate-y-1 z-10' 
                                             : 'opacity-70 scale-100'
                                     }`}
                                     onClick={() => setFeaturedIndex(index)}
