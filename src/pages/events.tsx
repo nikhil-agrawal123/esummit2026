@@ -2,9 +2,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
-
-import bg from "../assets/zonals_background.webp";
-
 import buttonTexture from "../assets/events/back.webp";
 import EventScroll from "../components/EventScroll/EventScroll";
 import eventsData from "../data/events.json";
