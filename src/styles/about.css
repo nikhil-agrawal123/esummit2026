@@ -8,8 +8,7 @@
 
     .about-section {
         min-height: 100vh;
-        height: auto;
-        padding: 6rem 1.5rem 0;
+        padding: 10rem 1.5rem 2;
         display: flex;
         flex-direction: column;
     }
@@ -36,6 +35,7 @@
 
     .about-text-block {
         max-width: 70% !important;
+        margin-top: 10rem;
         gap: 1rem;
     }
 
