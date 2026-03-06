@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import bg from "../assets/zonals_background.webp";
 import speakersData from "../data/speakers.json";
 import left from "../assets/events/window-left-panel.webp";
 import right from "../assets/events/window-right-panel.webp";
@@ -157,11 +156,6 @@ const Speakers = () => {
                 id="speakers"
                 ref={containerRef}
                 className="min-h-screen w-full flex flex-col items-center py-16 relative overflow-hidden"
-                style={{
-                    backgroundImage: `url(${bg})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
             >
                 {/* Header */}
                 <div ref={headingRef} className="text-center mb-8 relative z-10">
