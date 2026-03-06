@@ -133,21 +133,26 @@ const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
                         scaleX: defaultScale,
                         scaleY: defaultScale + 0.05,
                         duration: 0.2,
+                        overwrite: true,
                     });
                 }
             },
         });
+
+        const hoverArea = nav.querySelector('.navbar-hover-area') as HTMLElement;
 
         const handleMouseEnter = () => {
             if (!scaled) return;
 
             hovered = true;
 
+            gsap.killTweensOf(nav, "scaleX,scaleY");
             gsap.to(nav, {
                 scaleX: defaultScale,
                 scaleY: defaultScale + 0.05,
                 duration: 0.3,
-                ease: "back.out(1.7)",
+                ease: "power2.out",
+                overwrite: "auto",
             });
         };
 
@@ -156,21 +161,27 @@ const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
 
             hovered = false;
 
+            gsap.killTweensOf(nav, "scaleX,scaleY");
             gsap.to(nav, {
                 scaleX: scaleDownFactor,
                 scaleY: scaleDownFactor + 0.05,
                 duration: 0.3,
-                ease: "back.out(1.7)",
+                ease: "power2.out",
+                overwrite: "auto",
             });
         };
 
-        nav.addEventListener("mouseenter", handleMouseEnter);
-        nav.addEventListener("mouseleave", handleMouseLeave);
+        if (hoverArea) {
+            hoverArea.addEventListener("mouseenter", handleMouseEnter);
+            hoverArea.addEventListener("mouseleave", handleMouseLeave);
+        }
 
         return () => {
             scrollTrigger.kill();
-            nav.removeEventListener("mouseenter", handleMouseEnter);
-            nav.removeEventListener("mouseleave", handleMouseLeave);
+            if (hoverArea) {
+                hoverArea.removeEventListener("mouseenter", handleMouseEnter);
+                hoverArea.removeEventListener("mouseleave", handleMouseLeave);
+            }
         };
     }, [heroRef]);
 
@@ -288,6 +299,7 @@ const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
     return (
         <>
             <div ref={navRef} className="navbar">
+                <div className="navbar-hover-area" />
                 <img className="branch" src={branch} alt="branch" />
 
                 <div className="lanterns">

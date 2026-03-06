@@ -11,7 +11,22 @@
     pointer-events: none;
 }
 
-.navbar * {
+.navbar-hover-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 950px;
+    height: 550px;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.navbar .branch,
+.navbar .lanterns,
+.navbar .lantern-wrapper,
+.navbar .bird-wrapper,
+.navbar .birdie,
+.navbar .mobile-menu-lantern {
     pointer-events: auto;
 }
 
