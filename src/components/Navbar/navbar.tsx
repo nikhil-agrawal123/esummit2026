@@ -36,7 +36,7 @@ const mobileNavItems = [
 
 interface NavbarProps {
     heroRef: React.RefObject<HTMLDivElement | null>;
-    startTransition: () => void;
+    startTransition: (targetRoute: string) => void;
 }
 
 const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
@@ -227,7 +227,7 @@ const Navbar = ({ heroRef, startTransition }: NavbarProps) => {
             },
         });
         setTimeout(() => {
-            startTransition();
+            startTransition("/team");
         }, 600);
         tl.to(birdEl, {
             rotation: -10,

@@ -3,8 +3,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
+import passBrushstroke from "../assets/passBrushstroke.webp";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +17,11 @@ import bgRight from "../assets/team/right-bg.webp";
 import toriGate from "../assets/team/tori-gate.webp";
 import teamData from "../data/teamData.json";
 
-const TeamPage = () => {
+interface teamProps {
+    startTransition: (targetRoute: string) => void;
+}
+
+const TeamPage = ({ startTransition }: teamProps) => {
     const heroRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
 
@@ -58,18 +65,6 @@ const TeamPage = () => {
 
             tl.to(".team-text", { scale: 2, opacity: 0, duration: 0.3 }, 0);
 
-            // tl.to(
-            //     ".left-mountain",
-            //     { xPercent: -20, opacity: 0.8 },
-            //     0,
-            // );
-
-            // tl.to(
-            //     ".right-mountain",
-            //     { xPercent: 20, opacity: 0.8 },
-            //     0,
-            // );
-
             tl.to(
                 ".tori-gate",
                 {
@@ -81,7 +76,6 @@ const TeamPage = () => {
                 0,
             );
             tl.to(".tori-gate", { opacity: 0, duration: 0.1 }, 0.9);
-
 
             gsap.set(gridRef.current, {
                 y: -1700,
@@ -106,6 +100,26 @@ const TeamPage = () => {
 
     return (
         <section className="relative w-full min-h-screen bg-[#0a0a0a] overflow-x-hidden">
+            {/* Glass Back Button */}
+            <div
+                onClick={()=>{startTransition("/")}}
+                className="fixed w-45 top-6 left-12 z-9997 flex items-center gap-2 px-4 py-2 overflow-hidden scale-150 cursor-pointer"
+            >
+                <img
+                    src={passBrushstroke}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+                />
+                <div className="content flex items-center justify-center gap-2 mx-6!">
+                    <ArrowLeft size={18} className="text-[#9c4308] relative z-10" />
+                    <span className="font-semibold tracking-wide relative z-10 font-['Akumaru'] text-[25px] text-[#9c4308]"
+                        // style={
+                        //      { textShadow: "-1px -1px 0 #452007, 1px -1px 0 #452007, -1px 1px 0 #452007, 1px 1px 0 #452007"}
+                        // }
+                    >Home</span>
+                </div>
+            </div>
+
             {/* LAYER 0: Fixed Main Background */}
             <div
                 className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none"
@@ -170,7 +184,6 @@ const TeamPage = () => {
                                 damping: 20,
                             }}
                         >
-                            {/* --- BACKGROUND AESTHETICS --- */}
                             <div className="absolute -top-6 -left-4 sm:-top-10 sm:-left-6 text-[8rem] sm:text-[12rem] font-black text-[#5e2f0d]/5 select-none pointer-events-none leading-none z-0">
                                 {member.id}
                             </div>

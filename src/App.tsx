@@ -21,7 +21,7 @@ import SharedSection from "./pages/sharedSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function RouterContent({ startTransition }: { startTransition: () => void }) {
+function RouterContent({ startTransition }: { startTransition: (targetRoute: string) => void }) {
     const heroRef = useRef<HTMLDivElement | null>(null);
 
     return (
@@ -54,7 +54,7 @@ function RouterContent({ startTransition }: { startTransition: () => void }) {
                 path="/team"
                 element={
                     <>
-                        <TeamPage />
+                        <TeamPage startTransition={startTransition} />
                         <Petals count={50} />
                     </>
                 }
@@ -73,7 +73,7 @@ function DoorController() {
     const leftDoorRef = useRef<HTMLImageElement>(null);
     const rightDoorRef = useRef<HTMLImageElement>(null);
 
-    const startTransition = async () => {
+    const startTransition = async (targetRoute: string) => {
         await new Promise((r) => setTimeout(r, 200));
         setDoorsVisible(true);
 
@@ -106,7 +106,7 @@ function DoorController() {
 
         setWaitingForNavigation(true);
 
-        navigate("/team");
+        navigate(targetRoute);
         window.scrollTo(0, 0);
     };
 
