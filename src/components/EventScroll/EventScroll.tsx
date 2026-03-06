@@ -142,7 +142,7 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
                         </span>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center h-full w-[90%] px-6 py-6 relative z-10">
+                    <div className="flex flex-col items-center justify-center h-[90%] w-[90%] px-6 py-6 relative z-10">
                         <h3
                             className="text-3xl font-medium py-3! text-[#2A1B1B] text-center leading-[1.2]"
                             style={{ fontFamily: "Akumaru, serif" }}
@@ -161,33 +161,34 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
                                 {event.venue}
                             </div>
 
-                            {isExpanded && (
-                                <>
-                                    {event.desc && (
-                                        <p
-                                            ref={detailsRef}
-                                            className="text-center text-sm max-w-45"
-                                        >
-                                            {event.desc}
-                                        </p>
-                                    )}
+                            <div
+                                className={`flex flex-col items-center gap-4 transition-all duration-500 ease-out overflow-hidden ${
+                                    isExpanded
+                                        ? "opacity-100 translate-y-0 max-h-40"
+                                        : "opacity-0 -translate-y-3 max-h-0 pointer-events-none"
+                                }`}
+                            >
+                                {event.desc && (
+                                    <p className="text-center text-sm max-w-45">
+                                        {event.desc}
+                                    </p>
+                                )}
 
-                                    <a
-                                        href={event.link}
-                                        target="_blank"
-                                        className="relative group flex items-center justify-center mt-4 transition-transform duration-300 hover:scale-105"
-                                    >
-                                        <img
-                                            src={buttonTexture}
-                                            alt="Texture"
-                                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-50 scale-175"
-                                        />
-                                        <span className="relative z-10 px-4 py-2 tracking-[0.2em] text-[#5e2f0d] font-semibold text-xl">
-                                            GO
-                                        </span>
-                                    </a>
-                                </>
-                            )}
+                                <a
+                                    href={event.link}
+                                    target="_blank"
+                                    className="relative group flex items-center justify-center mt-4 transition-transform duration-500 hover:scale-105"
+                                >
+                                    <img
+                                        src={buttonTexture}
+                                        alt="Texture"
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-50 scale-175"
+                                    />
+                                    <span className="relative z-10 px-4 py-6 tracking-[0.2em] text-[#5e2f0d] font-semibold text-xl">
+                                        Register
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

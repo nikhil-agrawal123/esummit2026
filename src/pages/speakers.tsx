@@ -349,7 +349,7 @@ const Speakers = () => {
             </div>
             <div
                 ref={marqueeRef}
-                className="w-full max-w-350 mx-auto relative z-10 px-4 py-5"
+                className="w-full max-w-350 mx-auto relative z-10 px-4 py-10"
                 style={{ perspective: "1000px" }}
             >
                 <Marquee

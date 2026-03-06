@@ -9,7 +9,7 @@ function Sponsors() {
           Sponsors
         </h2>
       </div>
-      <div className="marquee-div absolute flex flex-col md:flex-row left-0 top-32 md:top-50 justify-center items-center inset-x-0 z-40 h-auto md:h-[80vh] w-full scale-100 md:scale-90 gap-4 md:gap-5 overflow-hidden px-4 md:px-0">
+      <div className="marquee-div absolute flex flex-col md:flex-row left-0 top-32 md:top-30 justify-center items-center inset-x-0 z-40 h-auto md:h-[80vh] w-full scale-100 md:scale-90 gap-4 md:gap-5 overflow-hidden px-4 md:px-0">
         <img className='rounded-2xl md:rounded-4xl w-[85%] md:w-auto max-w-134.5' src={unstop} alt="unstop" />
         <img className='rounded-2xl md:rounded-4xl w-[85%] md:w-auto max-w-134.5' src={ease} alt="easeMyTrip" />
       </div>
