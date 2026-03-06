@@ -84,11 +84,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 0.125px;
+    letter-spacing: 0.115px;
     font-family: "Akumaru";
     color: #5B433C;
     opacity: 0.9;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
 
     writing-mode: vertical-lr;
@@ -219,7 +219,7 @@
 .mobile-menu-lantern {
     display: none;
     position: absolute;
-    top: 130px;
+    top: 6rem;
     right: 95px;
     text-decoration: none;
     width: 117px;
