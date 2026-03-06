@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation , Navigate} from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { LenisProvider } from "./contexts/LenisContext";
@@ -33,7 +33,7 @@ function RouterContent({ startTransition }: { startTransition: (targetRoute: str
                         <Navbar heroRef={heroRef} startTransition={startTransition} />
                         <Hero ref={heroRef} />
                         <About />
-                        <SharedSection />
+                        <SharedSection startTransition={startTransition} />
                         <Petals count={50} />
                         <Footer />
                     </>
@@ -44,7 +44,7 @@ function RouterContent({ startTransition }: { startTransition: (targetRoute: str
                 path="/all-events"
                 element={
                     <>
-                        <AllEvents />
+                        <AllEvents startTransition={startTransition} />
                         <Petals count={50} />
                     </>
                 }
@@ -59,6 +59,8 @@ function RouterContent({ startTransition }: { startTransition: (targetRoute: str
                     </>
                 }
             />
+            <Route path="*" element={<Navigate to="/" replace />} />
+
         </Routes>
     );
 }

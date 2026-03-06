@@ -5,7 +5,12 @@ import Sponsors from "./sponsors";
 
 import bg from "../assets/zonals_background.webp";
 
-export default function SharedSection() {
+
+interface sharedSectionProps {
+    startTransition: (targetRoute: string) => void;
+}
+
+export default function SharedSection({ startTransition }: sharedSectionProps) {
     return (
         <div className="relative overflow-x-hidden">
             <div
@@ -19,7 +24,7 @@ export default function SharedSection() {
             />
 
             <Zonals />
-            <Events />
+            <Events startTransition={startTransition} />
             <Speakers />
             <Sponsors />
 

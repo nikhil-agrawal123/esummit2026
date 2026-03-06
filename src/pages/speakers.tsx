@@ -169,7 +169,7 @@ const Speakers = () => {
 
                 {/* Featured Speaker Card */}
                 <div 
-                    className="w-[75%] max-w-[300px] relative mx-auto mb-8"
+                    className="w-[75%] max-w-75 relative mx-auto mb-8"
                     style={{
                         animation: 'pulseGlow 2s ease-in-out infinite',
                     }}
@@ -251,7 +251,7 @@ const Speakers = () => {
                             {speakers.map((speaker, index) => (
                                 <div
                                     key={index}
-                                    className={`w-[70px] relative cursor-pointer transition-all duration-500 ${
+                                    className={`w-17.5 relative cursor-pointer transition-all duration-500 ${
                                         index === featuredIndex 
                                             ? 'scale-110 opacity-100 -translate-y-1 z-10' 
                                             : 'opacity-70 scale-100'

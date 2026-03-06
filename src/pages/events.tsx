@@ -1,12 +1,16 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Link } from "react-router-dom";
 import buttonTexture from "../assets/events/back.webp";
 import EventScroll from "../components/EventScroll/EventScroll";
 import eventsData from "../data/events.json";
 
-const Events = () => {
+
+interface eventsProps {
+    startTransition: (targetRoute: string) => void;
+}
+
+const Events = ({ startTransition }: eventsProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const eventList = eventsData.featuredEvents;
 
@@ -82,23 +86,18 @@ const Events = () => {
                 ))}
             </div>
 
-            <div className="w-full mt-40 md:mt-56 relative z-30 flex items-center justify-center">
-                <Link
-                    to="/all-events"
-                    className="relative group inline-flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
+            <div className="cursor-pointer w-full mt-40 md:mt-56 relative z-30 flex items-center justify-center" onClick={()=>{startTransition("/all-events")}}>
+                <img
+                    src={buttonTexture}
+                    alt="Texture"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-70 md:w-95 max-w-none pointer-events-none z-0 opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+                <span
+                    className="relative z-10 px-12 py-6 text-3xl md:text-4xl text-[#5e2f0d] drop-shadow-md font-bold tracking-wider group-hover:text-[#2A1B1B] transition-colors"
+                    style={{ fontFamily: "Akumaru, serif" }}
                 >
-                    <img
-                        src={buttonTexture}
-                        alt="Texture"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-70 md:w-95 max-w-none pointer-events-none z-0 opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <span
-                        className="relative z-10 px-12 py-6 text-3xl md:text-4xl text-[#5e2f0d] drop-shadow-md font-bold tracking-wider group-hover:text-[#2A1B1B] transition-colors"
-                        style={{ fontFamily: "Akumaru, serif" }}
-                    >
-                        All Events
-                    </span>
-                </Link>
+                    All Events
+                </span>
             </div>
         </section>
     );

@@ -4,7 +4,7 @@ import { Calendar, MapPin } from "lucide-react";
 
 import handleTop from "../../assets/events/scroll-handle-top.webp";
 import handleBottom from "../../assets/events/scroll-handle-bottom.webp";
-import paperTexture from "../../assets/events/scroll-paper.webp";
+import paperTexture from "../../assets/events/scroll-paper.png";
 import buttonTexture from "../../assets/events/back.webp";
 import mobileScroll from "../../assets/events/mobile-scroll.png";
 
@@ -126,7 +126,7 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
 
                 <div
                     ref={bodyRef}
-                    className="scroll-body relative w-[86%] z-10 overflow-hidden flex flex-col items-center -mt-4"
+                    className="scroll-body relative w-full h-[110%] z-10 overflow-hidden flex flex-col items-center -mt-4"
                     style={{
                         backgroundImage: `url(${paperTexture})`,
                         backgroundSize: "100% 100%",
@@ -134,7 +134,7 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
                     }}
                 >
                     <div
-                        className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none z-0"
+                        className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none z-0 "
                         style={{ fontFamily: "Akumaru, serif" }}
                     >
                         <span className="text-9xl text-[#5e2f0d] scale-150">
@@ -142,7 +142,7 @@ const EventScroll = ({ event, index }: EventScrollProps) => {
                         </span>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center h-full w-full px-6 py-6 relative z-10">
+                    <div className="flex flex-col items-center justify-center h-full w-[90%] px-6 py-6 relative z-10">
                         <h3
                             className="text-3xl font-medium py-3! text-[#2A1B1B] text-center leading-[1.2]"
                             style={{ fontFamily: "Akumaru, serif" }}

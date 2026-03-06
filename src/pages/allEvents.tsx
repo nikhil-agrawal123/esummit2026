@@ -1,14 +1,19 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Link } from "react-router-dom";
+import passBrushstroke from "../assets/passBrushstroke.webp";
+import { ArrowLeft } from "lucide-react";
 
 import eventsBg from "../assets/events/events-bg.png";
 import buttonTexture from "../assets/events/back.png";
 import EventScroll from "../components/EventScroll/EventScroll";
 import eventsData from "../data/events.json";
 
-const AllEvents = () => {
+interface allEventsProps {
+    startTransition: (targetRoute: string) => void;
+}
+
+const AllEvents = ({ startTransition }: allEventsProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const eventList = eventsData.allEvents;
 
@@ -93,6 +98,24 @@ const AllEvents = () => {
                 backgroundAttachment: "fixed",
             }}
         >
+            <div
+                onClick={()=>{startTransition("/")}}
+                className="fixed w-45 top-6 left-12 z-9997 flex items-center gap-2 px-4 py-2 overflow-hidden scale-150 cursor-pointer"
+            >
+                <img
+                    src={passBrushstroke}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+                />
+                <div className="content flex items-center justify-center gap-2 mx-6!">
+                    <ArrowLeft size={18} className="text-[#9c4308] relative z-10" />
+                    <span className="font-semibold tracking-wide relative z-10 font-['Akumaru'] text-[25px] text-[#9c4308]"
+                        // style={
+                        //      { textShadow: "-1px -1px 0 #452007, 1px -1px 0 #452007, -1px 1px 0 #452007, 1px 1px 0 #452007"}
+                        // }
+                    >Home</span>
+                </div>
+            </div>
             {/* Header */}
             <div className="text-center mb-16 md:mb-24 relative z-30 pt-10">
                 <h2
@@ -117,22 +140,18 @@ const AllEvents = () => {
 
             {/* Back to Home Button */}
             <div className="w-full mt-32 md:mt-40 relative z-30 flex items-center justify-center pb-10">
-                <Link
-                    to="/"
-                    className="relative group inline-flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
+                <img
+                    src={buttonTexture}
+                    alt="Texture"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 md:w-[320px] max-w-none pointer-events-none z-0 opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+                <span
+                    className="relative z-10 px-10 py-5 text-2xl md:text-3xl text-[#5e2f0d] drop-shadow-md font-bold tracking-wider group-hover:text-[#2A1B1B] transition-colors"
+                    style={{ fontFamily: "Akumaru, serif" }}
+                    onClick={()=>startTransition("/")}
                 >
-                    <img
-                        src={buttonTexture}
-                        alt="Texture"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 md:w-[320px] max-w-none pointer-events-none z-0 opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <span
-                        className="relative z-10 px-10 py-5 text-2xl md:text-3xl text-[#5e2f0d] drop-shadow-md font-bold tracking-wider group-hover:text-[#2A1B1B] transition-colors"
-                        style={{ fontFamily: "Akumaru, serif" }}
-                    >
-                        Back Home
-                    </span>
-                </Link>
+                    Back Home
+                </span>
             </div>
         </section>
     );
