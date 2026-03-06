@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import passBrushstroke from "../assets/passBrushstroke.webp";
 
