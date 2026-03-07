@@ -72,104 +72,111 @@
     },
     {
         "id": "11",
+        "name": "Paramveer",
+        "role": "Webdev Lead",
+        "jp": "マーケティング",
+        "image": "/members/26.webp"
+    },
+    {
+        "id": "12",
         "name": "Farhaan",
         "role": "Design OCs",
         "jp": "オペレーション",
         "image": "/members/21.webp"  
     },
     {
-        "id": "12",
+        "id": "13",
         "name": "Garu Jain",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/14.webp"
     },
     {
-        "id": "13",
+        "id": "14",
         "name": "Prerak Tanwar",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/16.webp"
     },
     {
-        "id": "14",
+        "id": "15",
         "name": "Saksham",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/17.webp"
     },
     {
-        "id": "15",
+        "id": "16",
         "name": "Parth",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/3.webp"
     },
     {
-        "id": "16",
+        "id": "17",
         "name": "Sumit",
         "role": "Operations OC",
         "jp": "マーケティング",
         "image": "/members/4.webp"
     },
     {
-        "id": "17",
+        "id": "18",
         "name": "Abhimanyu",
         "role": "Operations OC",
         "jp": "マーケティング",
         "image": "/members/12.webp"
     },
     {
-        "id": "18",
+        "id": "19",
         "name": "Adwait",
         "role": "PR And Outreach",
         "jp": "マーケティング",
         "image": "/members/24.webp"
     },
     {
-        "id": "19",
+        "id": "20",
         "name": "Yashaswi",
         "role": "PR And Outreach",
         "jp": "マーケティング",
         "image": "/members/15.webp"
     },
     {
-        "id": "20",
+        "id": "21",
         "name": "Kirat",
         "role": "PR And Outreach",
         "jp": "マーケティング",
         "image": "/members/23.webp"
     },
     {
-        "id": "21",
+        "id": "22",
         "name": "Shubhi",
         "role": "Ambience OC",
         "jp": "マーケティング",
         "image": "/members/19.webp"
     },
     {
-        "id": "22",
+        "id": "23",
         "name": "Pranshu",
         "role": "Ambience OC",
         "jp": "マーケティング",
         "image": "/members/13.webp"
     },
     {
-        "id": "23",
+        "id": "24",
         "name": "Anurag",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/18.webp"
     },
     {
-        "id": "24",
+        "id": "25",
         "name": "Pratham",
         "role": "Spons Core",
         "jp": "マーケティング",
         "image": "/members/6.webp"
     },
     {
-        "id": "25",
+        "id": "26",
         "name": "Rahul",
         "role": "Spons Core",
         "jp": "マーケティング",
