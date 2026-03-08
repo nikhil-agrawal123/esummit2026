@@ -72,7 +72,7 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
             <img src={twentySix} alt="26" className="w-lg" />
             <div className="w-96 flex items-center justify-center relative">
               <img src={passBrushstroke} alt="" />
-              <a href="/pass" className="absolute inset-0 flex items-center justify-center font-['Akumaru'] text-[43px] text-[#98440C]">
+              <a href="https://unstop.com/college-fests/e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-433525" className="absolute inset-0 flex items-center justify-center font-['Akumaru'] text-[43px] text-[#98440C]">
                 Get Your Pass
               </a>
             </div>
