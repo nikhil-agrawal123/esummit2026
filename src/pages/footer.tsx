@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { LenisContext } from "../contexts/LenisContext";
-import footerPhoto from "../assets/footer.jpeg"
 
 const Footer = () => {
     const { scrollTo } = useContext(LenisContext);
@@ -31,7 +30,7 @@ const Footer = () => {
                             <div className="relative">
                                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-br from-[#e488b0] to-[#7b3f00] opacity-40" />
                                 <img
-                                    src={footerPhoto}
+                                    src='/logo.png'
                                     alt="E-Summit 2026 Logo"
                                     className="relative w-12 h-12 rounded-lg object-cover border-2 border-[#7b3f00]/60"
                                 />
