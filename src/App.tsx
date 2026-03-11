@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/navbar";
 import Petals from "./components/Petals/petals";
 import Hero from "./pages/hero";
 import About from "./pages/about";
+import Schedule from "./pages/schedule";
 
 import AllEvents from "./pages/allEvents";
 import Footer from "./pages/footer";
@@ -77,6 +78,16 @@ function RouterContent({ startTransition }: { startTransition: (targetRoute: str
                 element={
                     <>
                         <TeamPage startTransition={startTransition} />
+                        <Petals count={50} />
+                    </>
+                }
+            />
+
+            <Route
+                path="/schedule"
+                element={
+                    <>
+                        <Schedule startTransition={startTransition} />
                         <Petals count={50} />
                     </>
                 }

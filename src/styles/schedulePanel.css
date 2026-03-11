@@ -1,0 +1,614 @@
+/* schedulePanel.css — Japanese manga-themed vertical timeline */
+
+/* ── Full-page container ── */
+.schedule-jp-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 1rem 4rem;
+  overflow: hidden;
+}
+
+.schedule-jp-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Title ── */
+.schedule-jp-title {
+  font-family: 'Akumaru', serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  color: #371B2E;
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  text-shadow:
+    0 2px 12px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(184, 100, 50, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.schedule-jp-subtitle {
+  font-family: 'Akumaru', serif;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  color: #98440C;
+  text-align: center;
+  letter-spacing: 0.35em;
+  margin-bottom: 2.5rem;
+  opacity: 0.85;
+}
+
+/* ── Day Switcher ── */
+.schedule-jp-day-switcher {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.schedule-jp-day-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.schedule-jp-day-btn:hover {
+  transform: translateY(-2px);
+}
+
+.schedule-jp-day-btn .btn-bg {
+  width: 11rem;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  filter: saturate(0.7) brightness(1.1);
+  transition: filter 0.3s ease;
+}
+
+.schedule-jp-day-btn.active .btn-bg {
+  filter: saturate(1.2) brightness(1);
+}
+
+.schedule-jp-day-btn .btn-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.schedule-jp-day-btn .btn-kanji {
+  font-family: 'Akumaru', serif;
+  font-size: 1.35rem;
+  color: #98440C;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.schedule-jp-day-btn.active .btn-kanji {
+  color: #7b3f00;
+}
+
+.schedule-jp-day-btn .btn-date {
+  font-size: 0.72rem;
+  color: #b45309;
+  letter-spacing: 0.05em;
+  margin-top: 1px;
+  opacity: 0.8;
+}
+
+/* ── Timeline Container ── */
+.schedule-jp-timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 2;
+}
+
+/* Center vertical line */
+.schedule-jp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #b91c1c44 5%,
+    #b91c1c 20%,
+    #eab308 50%,
+    #b91c1c 80%,
+    #b91c1c44 95%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px #b91c1c33, 0 0 4px #eab30844;
+}
+
+/* ── Timeline Row ── */
+.schedule-jp-row {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.schedule-jp-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Left-aligned event: card on left, manga on right */
+.schedule-jp-row.left {
+  flex-direction: row;
+}
+
+/* Right-aligned event: manga on left, card on right */
+.schedule-jp-row.right {
+  flex-direction: row-reverse;
+}
+
+/* Each side takes 50% minus the center gap */
+.schedule-jp-side {
+  width: calc(50% - 28px);
+}
+
+/* ── Timeline Node (center dot) ── */
+.schedule-jp-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #eab308, #b91c1c);
+  border: 3px solid #fff8f0;
+  box-shadow:
+    0 0 0 3px #b91c1c55,
+    0 0 14px #eab30866,
+    0 0 6px #b91c1c44;
+  z-index: 3;
+}
+
+.schedule-jp-node::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff8 0%, transparent 70%);
+}
+
+/* ═══════════════════════ MANGA PANEL ═══════════════════════ */
+
+.schedule-jp-manga-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border: 4px solid #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow:
+    6px 6px 0px #1a1a1a,
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-jp-manga-panel:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+  box-shadow:
+    8px 8px 0px #1a1a1a,
+    0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.manga-panel-img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) brightness(1.05);
+  transition: filter 0.3s ease;
+}
+
+.schedule-jp-manga-panel:hover .manga-panel-img {
+  filter: contrast(1.15) brightness(1.1);
+}
+
+/* Manga SFX overlay text */
+.manga-sfx {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow:
+    2px 2px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    0 0 10px rgba(185, 28, 28, 0.6);
+  transform: rotate(-8deg);
+  letter-spacing: 0.05em;
+  z-index: 5;
+  pointer-events: none;
+  font-family: serif;
+}
+
+/* Inner border effect for manga feel */
+.manga-panel-border {
+  position: absolute;
+  inset: 3px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Speed lines overlay for dynamic manga feel */
+.schedule-jp-manga-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 41%,
+    transparent 42%,
+    transparent 44%,
+    rgba(255, 255, 255, 0.02) 45%,
+    transparent 46%,
+    transparent 58%,
+    rgba(255, 255, 255, 0.03) 59%,
+    transparent 60%,
+    transparent 72%,
+    rgba(255, 255, 255, 0.02) 73%,
+    transparent 74%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Halftone dot overlay */
+.schedule-jp-manga-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 4px 4px;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+
+.schedule-jp-card {
+  background: linear-gradient(135deg, #fff8f0 0%, #fef3e0 60%, #fff5e6 100%);
+  border: 3px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 2rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow:
+    4px 4px 0px #1a1a1a,
+    0 4px 20px rgba(184, 100, 50, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+}
+
+.schedule-jp-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    6px 6px 0px #1a1a1a,
+    0 8px 32px rgba(184, 100, 50, 0.14);
+}
+
+/* Washi paper texture overlay */
+.schedule-jp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 90, 43, 0.02) 3px,
+      rgba(139, 90, 43, 0.02) 4px
+    );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Decorative kanji stamp for left cards */
+.schedule-jp-row.left .schedule-jp-card::after {
+  content: '祭';
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #b91c1c;
+  opacity: 0.07;
+  font-family: serif;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Decorative kanji stamp for right cards */
+.schedule-jp-row.right .schedule-jp-card::after {
+  content: '縁';
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #b91c1c;
+  opacity: 0.07;
+  font-family: serif;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ── Card Content ── */
+.schedule-jp-card-title {
+  font-family: 'Akumaru', serif;
+  font-size: 1.6rem;
+  color: #371B2E;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.schedule-jp-card-desc {
+  font-size: 1.05rem;
+  color: #5e2f0d;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.schedule-jp-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.schedule-jp-card-time,
+.schedule-jp-card-venue {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  color: #98440C;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.schedule-jp-card-time .meta-icon,
+.schedule-jp-card-venue .meta-icon {
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* Event index number */
+.schedule-jp-card-index {
+  position: absolute;
+  top: 6px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #b91c1c;
+  opacity: 0.06;
+  font-family: serif;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.schedule-jp-row.left .schedule-jp-card-index {
+  right: 12px;
+}
+
+.schedule-jp-row.right .schedule-jp-card-index {
+  left: 12px;
+}
+
+/* ── Connector Lines (card → node) ── */
+.schedule-jp-connector {
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(to right, #1a1a1a66, #b91c1c44);
+  z-index: 1;
+}
+
+.schedule-jp-row.left .schedule-jp-connector {
+  right: calc(50% - 28px);
+}
+
+.schedule-jp-row.right .schedule-jp-connector {
+  left: calc(50% - 28px);
+}
+
+/* ── Bottom Note ── */
+.schedule-jp-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #5e2f0d;
+  opacity: 0.7;
+  margin-top: 3rem;
+  max-width: 500px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Download Button ── */
+.schedule-jp-download-wrap {
+  margin-top: 1.5rem;
+  z-index: 2;
+}
+
+.schedule-jp-download-btn {
+  font-family: 'Akumaru', serif;
+  font-size: 1rem;
+  color: #98440C;
+  background: linear-gradient(135deg, #fff8f0 0%, #fef3e0 100%);
+  border: 3px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+.schedule-jp-download-btn:hover {
+  background: linear-gradient(135deg, #fef3e0 0%, #fde68a 100%);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px #1a1a1a;
+}
+
+/* ═══════════════════════ RESPONSIVE ═══════════════════════ */
+
+@media (max-width: 768px) {
+  .schedule-jp-page {
+    padding: 5rem 0.75rem 3rem;
+  }
+
+  .schedule-jp-title {
+    font-size: 2rem;
+  }
+
+  /* Move timeline line to left edge */
+  .schedule-jp-timeline::before {
+    left: 16px;
+  }
+
+  .schedule-jp-row {
+    flex-direction: column !important;
+    margin-bottom: 2.5rem;
+    padding-left: 40px;
+  }
+
+  .schedule-jp-row.left,
+  .schedule-jp-row.right {
+    flex-direction: column !important;
+  }
+
+  .schedule-jp-side {
+    width: 100%;
+  }
+
+  /* On mobile: card first, manga below */
+  .schedule-jp-row.right > .schedule-jp-side:first-child {
+    order: 2;
+  }
+  .schedule-jp-row.right > .schedule-jp-side:nth-child(2) {
+    order: 1;
+  }
+
+  .schedule-jp-manga-panel {
+    min-height: 160px;
+    margin-top: 0.75rem;
+  }
+
+  .schedule-jp-node {
+    left: 16px;
+    top: 2rem;
+    transform: translate(-50%, 0);
+  }
+
+  .schedule-jp-connector {
+    display: none;
+  }
+
+  .schedule-jp-card-index {
+    right: 8px !important;
+    left: auto !important;
+    font-size: 3rem;
+  }
+
+  .schedule-jp-card::after {
+    display: none;
+  }
+
+  .schedule-jp-day-btn .btn-bg {
+    width: 9rem;
+  }
+
+  .schedule-jp-day-btn .btn-kanji {
+    font-size: 1.1rem;
+  }
+
+  .manga-sfx {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-jp-page {
+    padding: 4.5rem 0.5rem 2rem;
+  }
+
+  .schedule-jp-title {
+    font-size: 1.6rem;
+  }
+
+  .schedule-jp-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .schedule-jp-card {
+    padding: 1.3rem 1.2rem;
+  }
+
+  .schedule-jp-card-title {
+    font-size: 1.25rem;
+  }
+
+  .schedule-jp-card-desc {
+    font-size: 0.92rem;
+  }
+
+  .schedule-jp-day-btn .btn-bg {
+    width: 8rem;
+  }
+
+  .schedule-jp-manga-panel {
+    min-height: 140px;
+  }
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "day": 1,
+    "events": [
+      {
+        "name": "Opening Ceremony",
+        "description": "Kickoff and welcome address.",
+        "time": "09:00 - 10:00 AM",
+        "venue": "Main Auditorium"
+      },
+      {
+        "name": "Keynote: Future of Tech",
+        "description": "Insights from industry leaders.",
+        "time": "10:15 - 11:00 AM",
+        "venue": "Hall A"
+      },
+      {
+        "name": "Panel: Startups 101",
+        "description": "Founders share their journeys.",
+        "time": "11:15 AM - 12:00 PM",
+        "venue": "Hall B"
+      },
+      {
+        "name": "Networking Lunch",
+        "description": "Meet and greet with participants.",
+        "time": "12:00 - 01:00 PM",
+        "venue": "Cafeteria"
+      },
+      {
+        "name": "Workshop: AI for All",
+        "description": "Hands-on with AI tools.",
+        "time": "01:15 - 02:30 PM",
+        "venue": "Lab 2"
+      },
+      {
+        "name": "Cultural Performance",
+        "description": "Traditional Japanese dance.",
+        "time": "02:45 - 03:15 PM",
+        "venue": "Open Stage"
+      },
+      {
+        "name": "Startup Pitch",
+        "description": "Startups present their ideas.",
+        "time": "03:30 - 04:30 PM",
+        "venue": "Hall A"
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "events": [
+      {
+        "name": "Yoga & Meditation",
+        "description": "Morning wellness session.",
+        "time": "08:00 - 09:00 AM",
+        "venue": "Lawn"
+      },
+      {
+        "name": "Workshop: Design Thinking",
+        "description": "Interactive session on innovation.",
+        "time": "09:30 - 11:00 AM",
+        "venue": "Workshop Room 1"
+      },
+      {
+        "name": "Fireside Chat",
+        "description": "Q&A with a special guest.",
+        "time": "11:15 AM - 12:00 PM",
+        "venue": "Main Auditorium"
+      },
+      {
+        "name": "Lunch Break",
+        "description": "Enjoy a variety of cuisines.",
+        "time": "12:00 - 01:00 PM",
+        "venue": "Cafeteria"
+      },
+      {
+        "name": "Panel: Women in Tech",
+        "description": "Stories from women leaders.",
+        "time": "01:15 - 02:00 PM",
+        "venue": "Hall B"
+      },
+      {
+        "name": "Hackathon Finale",
+        "description": "Final presentations and judging.",
+        "time": "02:15 - 03:30 PM",
+        "venue": "Lab 1"
+      },
+      {
+        "name": "Closing Ceremony",
+        "description": "Awards and closing remarks.",
+        "time": "03:45 - 04:30 PM",
+        "venue": "Main Auditorium"
+      }
+    ]
+  }
+]

@@ -61,8 +61,8 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
         {windowWidth < 768 && (
           <div className="hero-mobile-pass-container w-full flex justify-center items-center" ref={buttonRef}>
             <img src={passBrushstroke} alt="" className="hero-mobile-pass-img scale-125" />
-            <a href="/pass" className="hero-mobile-pass-link scale-125">
-              Get Your Pass
+            <a href="/schedule" className="hero-mobile-pass-link scale-125">
+              Schedule
             </a>
           </div>
         )}
@@ -72,8 +72,8 @@ const Hero = forwardRef<HTMLDivElement>((_, ref) => {
             <img src={twentySix} alt="26" className="w-lg" />
             <div className="w-96 flex items-center justify-center relative">
               <img src={passBrushstroke} alt="" />
-              <a href="https://unstop.com/college-fests/e-summit-2026-indraprastha-institute-of-information-technology-iiit-delhi-433525" className="absolute inset-0 flex items-center justify-center font-['Akumaru'] text-[43px] text-[#98440C]">
-                Get Your Pass
+              <a href="/schedule" className="absolute inset-0 flex items-center justify-center font-['Akumaru'] text-[43px] text-[#98440C]">
+                Schedule
               </a>
             </div>
           </div>
