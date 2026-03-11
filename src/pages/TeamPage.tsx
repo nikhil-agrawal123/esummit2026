@@ -100,7 +100,44 @@ const TeamPage = ({ startTransition }: teamProps) => {
         },
         { scope: heroRef },
     );
+    useGSAP(
+        ()=>{
+            gsap.set([".left-mountain", 
+                ".right-mountain"
+            ], {
+                scale: 1.25,
+            })
+            const addScrollTrigger = ()=>{
+                return {scrollTrigger: {
+                    trigger: ".photo-grid",
+                    start: "top 95%",
+                    end: "bottom 150%",
+                    scrub: true,
+                    markers: true
+                }}
+            }
+            gsap.to([".left-mountain", 
+                ".right-mountain"
+            ], {
+                opacity: 0.6,
+                zIndex: 5,
+                ...addScrollTrigger()
+            });
+            gsap.to(".left-mountain", {
+                xPercent: -10,
+                yPercent: 10,
+                scale: 0.95,
+                ...addScrollTrigger()
+            })
+            gsap.to(".right-mountain", {
+                xPercent: 10,
+                yPercent: 10,
+                scale: 0.95,
+                ...addScrollTrigger()
+            })
 
+        }
+    )
     return (
         <section className="relative w-full min-h-screen bg-[#0a0a0a] overflow-x-hidden">
 
@@ -304,7 +341,7 @@ const TeamPage = ({ startTransition }: teamProps) => {
 
                 <div
                     ref={gridRef}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-2 lg:gap-x-2 gap-y-12 lg:gap-y-20 place-items-center w-[80vw] scale-50 max-w-350"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-2 lg:gap-x-2 gap-y-12 lg:gap-y-20 place-items-center w-[80vw] scale-50 max-w-350 z-80 photo-grid"
                 >
 
                     {teamData.team.map((member) => (
