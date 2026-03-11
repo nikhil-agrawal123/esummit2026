@@ -113,7 +113,6 @@ const TeamPage = ({ startTransition }: teamProps) => {
                     start: "top 95%",
                     end: "bottom 150%",
                     scrub: true,
-                    markers: true
                 }}
             }
             gsap.to([".left-mountain", 
