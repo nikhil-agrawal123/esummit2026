@@ -3,46 +3,112 @@
     "day": 1,
     "events": [
       {
-        "name": "Opening Ceremony",
-        "description": "Kickoff and welcome address.",
-        "time": "09:00 - 10:00 AM",
-        "venue": "Main Auditorium"
+        "name": "Inauguration + Anshuman Tripathi",
+        "description": "Inauguration ceremony.",
+        "time": "09:30 AM - 11:00 AM",
+        "venue": "C-102"
       },
       {
-        "name": "Keynote: Future of Tech",
-        "description": "Insights from industry leaders.",
-        "time": "10:15 - 11:00 AM",
-        "venue": "Hall A"
+        "name": "Tesseract Start",
+        "description": "Tesseract Start event.",
+        "time": "11:00 AM - 11:30 AM",
+        "venue": "OAT"
       },
       {
-        "name": "Panel: Startups 101",
-        "description": "Founders share their journeys.",
-        "time": "11:15 AM - 12:00 PM",
-        "venue": "Hall B"
+        "name": "Startup Fair",
+        "description": "Startup Fair.",
+        "time": "11:00 AM - 05:00 PM",
+        "venue": "C-101"
       },
       {
-        "name": "Networking Lunch",
-        "description": "Meet and greet with participants.",
-        "time": "12:00 - 01:00 PM",
-        "venue": "Cafeteria"
+        "name": "Hack4Impact - 24 Hr Hackathon",
+        "description": "24 Hr Hackathon.",
+        "time": "11:00 AM - Full Night",
+        "venue": "C-201"
       },
       {
-        "name": "Workshop: AI for All",
-        "description": "Hands-on with AI tools.",
-        "time": "01:15 - 02:30 PM",
-        "venue": "Lab 2"
+        "name": "Trading Heist",
+        "description": "Trading Heist event.",
+        "time": "11:00 AM - 02:00 PM",
+        "venue": "C-01"
       },
       {
-        "name": "Cultural Performance",
-        "description": "Traditional Japanese dance.",
-        "time": "02:45 - 03:15 PM",
-        "venue": "Open Stage"
+        "name": "B-Plan",
+        "description": "Business Plan competition.",
+        "time": "11:00 AM - 03:00 PM",
+        "venue": "C-11"
       },
       {
-        "name": "Startup Pitch",
-        "description": "Startups present their ideas.",
-        "time": "03:30 - 04:30 PM",
-        "venue": "Hall A"
+        "name": "Venture Verse",
+        "description": "Venture Verse event.",
+        "time": "11:00 AM - 04:00 PM",
+        "venue": "C-21"
+      },
+      {
+        "name": "Pitch Cafe - Student Track",
+        "description": "Student Track Pitch Cafe.",
+        "time": "11:00 AM - 06:00 PM",
+        "venue": "B-001 & B-002"
+      },
+      {
+        "name": "Shark Tank",
+        "description": "Shark Tank event.",
+        "time": "11:00 AM - 03:00 PM",
+        "venue": "B-003"
+      },
+      {
+        "name": "BlindStorm",
+        "description": "BlindStorm event.",
+        "time": "11:00 AM - 05:00 PM",
+        "venue": "A-106"
+      },
+      {
+        "name": "BGMI",
+        "description": "BGMI tournament.",
+        "time": "11:00 AM - 06:00 PM",
+        "venue": "B-105"
+      },
+      {
+        "name": "Krafton",
+        "description": "Krafton special event.",
+        "time": "12:00 PM - 01:30 PM",
+        "venue": "C-201"
+      },
+      {
+        "name": "Canvas Painting",
+        "description": "Canvas Painting session.",
+        "time": "12:00 PM - 03:00 PM",
+        "venue": "A-006"
+      },
+      {
+        "name": "Vijender Chauhan",
+        "description": "Speaker session by Vijender Chauhan.",
+        "time": "02:00 PM - 03:00 PM",
+        "venue": "C-102"
+      },
+      {
+        "name": "J-Lang Course (Placement Cell)",
+        "description": "J-Lang Course by Placement Cell.",
+        "time": "02:00 PM - 06:00 PM",
+        "venue": "C-01"
+      },
+      {
+        "name": "Battle of Bands",
+        "description": "Battle of Bands competition.",
+        "time": "03:30 PM - 07:30 PM",
+        "venue": "OAT"
+      },
+      {
+        "name": "Alumni Panel",
+        "description": "Alumni discussion panel.",
+        "time": "04:00 PM - 05:00 PM",
+        "venue": "A-007"
+      },
+      {
+        "name": "Team Dinner",
+        "description": "Team Dinner.",
+        "time": "07:00 PM - 08:00 PM",
+        "venue": "Rnd Faculty Lounge"
       }
     ]
   },
@@ -50,46 +116,136 @@
     "day": 2,
     "events": [
       {
-        "name": "Yoga & Meditation",
-        "description": "Morning wellness session.",
-        "time": "08:00 - 09:00 AM",
-        "venue": "Lawn"
+        "name": "Hack4Impact",
+        "description": "Hack4Impact hackathon.",
+        "time": "09:00 AM - 12:00 PM",
+        "venue": "C-201"
       },
       {
-        "name": "Workshop: Design Thinking",
-        "description": "Interactive session on innovation.",
-        "time": "09:30 - 11:00 AM",
-        "venue": "Workshop Room 1"
+        "name": "Tesseract - Entrepreneurship Hunt",
+        "description": "Tesseract event.",
+        "time": "09:30 AM - 06:00 PM",
+        "venue": "Delhi"
       },
       {
-        "name": "Fireside Chat",
-        "description": "Q&A with a special guest.",
-        "time": "11:15 AM - 12:00 PM",
-        "venue": "Main Auditorium"
+        "name": "SHEO panel",
+        "description": "SHEO panel discussion.",
+        "time": "10:00 AM - 10:30 AM",
+        "venue": "A-006"
       },
       {
-        "name": "Lunch Break",
-        "description": "Enjoy a variety of cuisines.",
-        "time": "12:00 - 01:00 PM",
-        "venue": "Cafeteria"
+        "name": "Storage Wars",
+        "description": "Storage Wars event.",
+        "time": "10:00 AM - 01:30 PM",
+        "venue": "C-02"
       },
       {
-        "name": "Panel: Women in Tech",
-        "description": "Stories from women leaders.",
-        "time": "01:15 - 02:00 PM",
-        "venue": "Hall B"
+        "name": "E-Pitch Cafe - Startup Track",
+        "description": "Startup Track Pitches.",
+        "time": "10:00 AM - 11:30 AM",
+        "venue": "A-007"
       },
       {
-        "name": "Hackathon Finale",
-        "description": "Final presentations and judging.",
-        "time": "02:15 - 03:30 PM",
-        "venue": "Lab 1"
+        "name": "IPL Auction",
+        "description": "IPL Auction event.",
+        "time": "10:00 AM - 04:00 PM",
+        "venue": "B-003"
       },
       {
-        "name": "Closing Ceremony",
-        "description": "Awards and closing remarks.",
-        "time": "03:45 - 04:30 PM",
-        "venue": "Main Auditorium"
+        "name": "Inspire India",
+        "description": "Inspire India session.",
+        "time": "10:30 AM - 12:00 PM",
+        "venue": "C-102"
+      },
+      {
+        "name": "BGMI",
+        "description": "BGMI Tournament Day 2.",
+        "time": "11:00 AM - 05:30 PM",
+        "venue": "C-101"
+      },
+      {
+        "name": "Tesseract Start",
+        "description": "Tesseract Start event Day 2.",
+        "time": "11:00 AM - 11:30 AM",
+        "venue": "OAT"
+      },
+      {
+        "name": "Strategy Showdown",
+        "description": "Strategy Showdown event.",
+        "time": "11:00 AM - 03:00 PM",
+        "venue": "C-11"
+      },
+      {
+        "name": "Mind The Product",
+        "description": "Mind The Product event.",
+        "time": "11:00 AM - 03:00 PM",
+        "venue": "C-21"
+      },
+      {
+        "name": "E-Pitch Cafe - Startup Track",
+        "description": "Startup Track Pitches.",
+        "time": "11:00 AM - 05:30 PM",
+        "venue": "B-001 & B-002"
+      },
+      {
+        "name": "Waiting Room - EPitch Cafe",
+        "description": "Waiting Room for EPitch Cafe.",
+        "time": "11:00 AM - 05:30 PM",
+        "venue": "A-106"
+      },
+      {
+        "name": "Case Study Competition",
+        "description": "Case Study Competition.",
+        "time": "11:00 AM - 02:30 PM",
+        "venue": "B-105"
+      },
+      {
+        "name": "Startup Fair",
+        "description": "Startup Fair Day 2.",
+        "time": "11:00 AM - 05:00 PM",
+        "venue": "LHC Road (stalls)"
+      },
+      {
+        "name": "StartUp Showdown",
+        "description": "StartUp Showdown event.",
+        "time": "11:00 AM - 02:30 PM",
+        "venue": "Tut Rooms"
+      },
+      {
+        "name": "Comedian",
+        "description": "Comedian performance.",
+        "time": "12:00 PM - 01:00 PM",
+        "venue": "C-102"
+      },
+      {
+        "name": "Bid Bonanza",
+        "description": "Bid Bonanza event.",
+        "time": "12:30 PM - 03:00 PM",
+        "venue": "C-01"
+      },
+      {
+        "name": "Team & Guests Lunch",
+        "description": "Team & Guests Lunch.",
+        "time": "01:00 PM - 02:00 PM",
+        "venue": "Rnd Faculty Lounge"
+      },
+      {
+        "name": "Incubation",
+        "description": "Incubation session.",
+        "time": "01:00 PM - 02:00 PM",
+        "venue": "A-007"
+      },
+      {
+        "name": "Tote Bag Competition",
+        "description": "Tote Bag Competition.",
+        "time": "02:30 PM - 06:30 PM",
+        "venue": "B-105"
+      },
+      {
+        "name": "Closing Note and Award Ceremony",
+        "description": "Closing Note and Award Ceremony.",
+        "time": "04:00 PM - 05:30 PM",
+        "venue": "C-102"
       }
     ]
   }

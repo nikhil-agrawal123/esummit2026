@@ -23,7 +23,7 @@
 
 /* ── Title ── */
 .schedule-jp-title {
-  font-family: 'Akumaru', serif;
+  font-family: serif;
   font-size: clamp(2.2rem, 6vw, 4.5rem);
   color: #371B2E;
   text-align: center;
@@ -37,7 +37,7 @@
 }
 
 .schedule-jp-subtitle {
-  font-family: 'Akumaru', serif;
+  font-family: serif;
   font-size: clamp(0.85rem, 2vw, 1.15rem);
   color: #98440C;
   text-align: center;
@@ -95,7 +95,7 @@
 }
 
 .schedule-jp-day-btn .btn-kanji {
-  font-family: 'Akumaru', serif;
+  font-family:  serif;
   font-size: 1.35rem;
   color: #98440C;
   letter-spacing: 0.1em;
@@ -383,7 +383,7 @@
 
 /* ── Card Content ── */
 .schedule-jp-card-title {
-  font-family: 'Akumaru', serif;
+  font-family: serif;
   font-size: 1.6rem;
   color: #371B2E;
   letter-spacing: 0.04em;

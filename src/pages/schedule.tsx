@@ -16,40 +16,83 @@ const dayLabels = [
     { kanji: "第二日", en: "Day 2", date: "April 14, 2026" },
 ];
 
-// Map event names to manga panel images
 const mangaImageMap: Record<string, string> = {
-    "Opening Ceremony": "/assets/manga/ceremony.png",
-    "Keynote: Future of Tech": "/assets/manga/tech.png",
-    "Panel: Startups 101": "/assets/manga/discussion.png",
-    "Networking Lunch": "/assets/manga/social.png",
-    "Workshop: AI for All": "/assets/manga/tech.png",
-    "Cultural Performance": "/assets/manga/performance.png",
-    "Startup Pitch": "/assets/manga/discussion.png",
-    "Yoga & Meditation": "/assets/manga/wellness.png",
-    "Workshop: Design Thinking": "/assets/manga/hackathon.png",
-    "Fireside Chat": "/assets/manga/discussion.png",
-    "Lunch Break": "/assets/manga/social.png",
-    "Panel: Women in Tech": "/assets/manga/discussion.png",
-    "Hackathon Finale": "/assets/manga/hackathon.png",
-    "Closing Ceremony": "/assets/manga/ceremony.png",
+    "Inauguration + Anshuman Tripathi": "/assets/manga/ceremony.png",
+    "Tesseract Start": "/assets/manga/tech.png",
+    "Startup Fair": "/assets/manga/social.png",
+    "Hack4Impact - 24 Hr Hackathon": "/assets/manga/hackathon.png",
+    "Trading Heist": "/assets/manga/tech.png",
+    "B-Plan": "/assets/manga/discussion.png",
+    "Venture Verse": "/assets/manga/discussion.png",
+    "Pitch Cafe - Student Track": "/assets/manga/discussion.png",
+    "Shark Tank": "/assets/manga/discussion.png",
+    "BlindStorm": "/assets/manga/hackathon.png",
+    "BGMI": "/assets/manga/tech.png",
+    "Krafton": "/assets/manga/tech.png",
+    "Canvas Painting": "/assets/manga/wellness.png",
+    "Vijender Chauhan": "/assets/manga/discussion.png",
+    "J-Lang Course (Placement Cell)": "/assets/manga/discussion.png",
+    "Battle of Bands": "/assets/manga/performance.png",
+    "Alumni Panel": "/assets/manga/discussion.png",
+    "Team Dinner": "/assets/manga/social.png",
+    "Hack4Impact": "/assets/manga/hackathon.png",
+    "Tesseract - Entrepreneurship Hunt": "/assets/manga/tech.png",
+    "SHEO panel": "/assets/manga/discussion.png",
+    "Storage Wars": "/assets/manga/discussion.png",
+    "E-Pitch Cafe - Startup Track": "/assets/manga/discussion.png",
+    "IPL Auction": "/assets/manga/discussion.png",
+    "Inspire India": "/assets/manga/discussion.png",
+    "Strategy Showdown": "/assets/manga/discussion.png",
+    "Mind The Product": "/assets/manga/discussion.png",
+    "Waiting Room - EPitch Cafe": "/assets/manga/social.png",
+    "Case Study Competition": "/assets/manga/discussion.png",
+    "StartUp Showdown": "/assets/manga/discussion.png",
+    "Comedian": "/assets/manga/performance.png",
+    "Bid Bonanza": "/assets/manga/discussion.png",
+    "Team & Guests Lunch": "/assets/manga/social.png",
+    "Incubation": "/assets/manga/tech.png",
+    "Tote Bag Competition": "/assets/manga/performance.png",
+    "Closing Note and Award Ceremony": "/assets/manga/ceremony.png"
 };
 
 // Manga sound effects per event for extra flair
 const mangaSfx: Record<string, string> = {
-    "Opening Ceremony": "ドドドド!!",
-    "Keynote: Future of Tech": "ギュンッ!",
-    "Panel: Startups 101": "ザワザワ",
-    "Networking Lunch": "もぐもぐ",
-    "Workshop: AI for All": "カタカタ!",
-    "Cultural Performance": "シャアッ",
-    "Startup Pitch": "バーン!!",
-    "Yoga & Meditation": "スゥー...",
-    "Workshop: Design Thinking": "ゴゴゴゴ",
-    "Fireside Chat": "フッ...",
-    "Lunch Break": "ワイワイ",
-    "Panel: Women in Tech": "キラキラ✦",
-    "Hackathon Finale": "ドカーン!!",
-    "Closing Ceremony": "パチパチ!!",
+    "Inauguration + Anshuman Tripathi": "ドドドド!!",
+    "Tesseract Start": "ギュンッ!",
+    "Startup Fair": "ザワザワ",
+    "Hack4Impact - 24 Hr Hackathon": "カタカタ!",
+    "Trading Heist": "バーン!!",
+    "B-Plan": "ゴゴゴゴ",
+    "Venture Verse": "ドドドド!!",
+    "Pitch Cafe - Student Track": "ワイワイ",
+    "Shark Tank": "シャアッ",
+    "BlindStorm": "ドン!",
+    "BGMI": "ドカーン!!",
+    "Krafton": "ドカーン!!",
+    "Canvas Painting": "スゥー...",
+    "Vijender Chauhan": "フッ...",
+    "J-Lang Course (Placement Cell)": "カタカタ!",
+    "Battle of Bands": "シャアッ",
+    "Alumni Panel": "ザワザワ",
+    "Team Dinner": "もぐもぐ",
+    "Hack4Impact": "カタカタ!",
+    "Tesseract - Entrepreneurship Hunt": "ギュンッ!",
+    "SHEO panel": "キラキラ✦",
+    "Storage Wars": "バーン!!",
+    "E-Pitch Cafe - Startup Track": "ワイワイ",
+    "IPL Auction": "ドカーン!!",
+    "Inspire India": "キラキラ✦",
+    "Strategy Showdown": "ゴゴゴゴ",
+    "Mind The Product": "ドドドド!!",
+    "Waiting Room - EPitch Cafe": "ワイワイ",
+    "Case Study Competition": "ドン!",
+    "StartUp Showdown": "ドドドド!!",
+    "Comedian": "ワハハ!!", 
+    "Bid Bonanza": "バーン!!",
+    "Team & Guests Lunch": "もぐもぐ",
+    "Incubation": "フッ...",
+    "Tote Bag Competition": "シャアッ",
+    "Closing Note and Award Ceremony": "パチパチ!!"
 };
 
 const fallbackManga = "/assets/manga/ceremony.png";
@@ -203,8 +246,7 @@ const Schedule = ({ startTransition }: ScheduleProps) => {
 
             {/* Note */}
             <div className="schedule-jp-note">
-                Schedule is subject to minor changes. Final program will be sent to all
-                registered attendees.
+                Schedule is subject to minor changes. Please check back closer to the event for the final lineup.
             </div>
         </div>
     );
